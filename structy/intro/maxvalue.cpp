@@ -2,14 +2,24 @@
 #include <limits>
 #include <iostream>
 
+//need to include the limits library and the iostream library
+    //limits for the negative infinity
+    //iostream to cout the results
+
+//function takes a vector filled with floats called numbers 
 float maxValue(std::vector<float> numbers) {
+    //initialize a variable to negative infinity so that the loop will set value on first pass
     float max = -std::numeric_limits<float>::infinity();
+    //simple for loop of the variables inside the vector
   for (float num : numbers){
+      //if the num is greater than the max then set the max to the num
       if( num > max){
           max = num;
       }
   }
+  //c out the max after iteration is complete
   std::cout << max << std::endl;
+  //return the max value when done
   return max;
 }
 
