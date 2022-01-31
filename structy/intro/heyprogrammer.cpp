@@ -4,7 +4,7 @@ std::string greet(std::string s) {
     return "hey " + s;
 }
 
-void run() {
+int main() {
     greet("alvin");
     greet("jason");
     greet("how now brown cow");
