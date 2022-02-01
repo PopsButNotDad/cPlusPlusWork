@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 
 //Write a function, uncompress, that takes in a string as an argument. 
@@ -63,7 +64,7 @@ std::string uncompress(std::string s) {
         }
     }
 
-
+    std::cout << result << std::endl;
     return result;
 };
 
