@@ -90,3 +90,15 @@ int main( ) {
 
     linkedListFind(&node11, "apple"); // 0 (false)
 }
+
+//Iterative Complexity:
+    //n = number of nodes
+
+    //Time: O( n )
+    //Space:O( 1 )
+
+//Recursive Complexity:
+    //n = numbers of node
+
+    //Time: O( n )
+    //Space: O( n )
