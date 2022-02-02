@@ -52,6 +52,12 @@ int main() {
     // q
 
     linkedListValues(&q); // -> [ "q" ]
-    
+
     linkedListValues(nullptr); // -> [ ]
 }
+
+//Complexity
+    //n = number of nodes
+
+    //Time: O( n )
+    //Space: O( n )
