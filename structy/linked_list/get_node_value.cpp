@@ -17,7 +17,7 @@ class Node {
 };
 
 
-
+//iterative solution
 std::string getNodeValue(Node* head, int idx) {
     Node* current = head;
     int count = 0;
@@ -26,7 +26,14 @@ std::string getNodeValue(Node* head, int idx) {
         current = current->next;
         count += 1;
     }
-    return nullptr;
+    return "";
+}
+
+//recursive solution.
+std::string getNodeValueRe(Node* head, int idx) {
+    if(head == nullptr) return "";
+    if(idx == 0) return head->val;
+    return getNodeValueRe(head->next, idx-1);
 }
 
 int main () {
