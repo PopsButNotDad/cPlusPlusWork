@@ -1,17 +1,26 @@
 class Node {
-  public:
-    int val;
-    Node* next;
+    public:
+        int val;
+        Node* next;
 
     Node(int initialVal) {
-      val = initialVal;
-      next = nullptr;
+        val = initialVal;
+        next = nullptr;
     }
 };
 
 int sumList(Node* head) {
-  // todo
-  return;
+    int result = 0;
+
+    Node* current = head;
+
+    while (current != nullptr){
+        result = current->val + result;
+
+        current = current->next;
+    }
+
+    return result;
 }
 
 int main() {
