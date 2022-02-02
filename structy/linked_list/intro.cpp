@@ -32,7 +32,6 @@ void printListRecursive(Node* head){
     if (head == nullptr){
         return;
     }
-
     std::cout << head->val << std::endl;
     printListRecursive(head->next);    
 };
