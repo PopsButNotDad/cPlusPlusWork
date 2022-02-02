@@ -9,8 +9,6 @@ class Node {
     }
 };
 
-
-
 int sumList(Node* head) {
   // todo
   return;
@@ -50,3 +48,15 @@ int main() {
     sumList(nullptr); // 0
 
 }
+
+//Iterative Complexity
+    //n = number of nodes 
+
+    //Time: O( n )
+    //Space: O( n )
+
+//Recursive Complexity
+    //n = number of nodes 
+
+    //Time: O(  )
+    //Space: O(  )
