@@ -24,8 +24,8 @@ int main() {
     a.next = &b;
     b.next = &c;
     c.next = &d;
-    d.next = &e;
-
+    d.next = &e; 
+    
     // 2 -> 8 -> 3 -> -1 -> 7
 
     sumList(&a); // 19
@@ -33,15 +33,11 @@ int main() {
     Node x(38);
     Node y(4);
 
-    x.next = &y;
-
-    // 38 -> 4
+    x.next = &y; // 38 -> 4
 
     sumList(&x); // 42
 
-    Node z(100);
-
-    // 100
+    Node z(100); // 100
 
     sumList(&z); // 100
 
@@ -58,5 +54,5 @@ int main() {
 //Recursive Complexity
     //n = number of nodes 
 
-    //Time: O(  )
-    //Space: O(  )
+    //Time: O( n )
+    //Space: O( n )
