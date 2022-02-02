@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 //class node contains public values
 class Node {
@@ -17,6 +18,16 @@ class Node {
     }
 };
 
+//iterative solution
+void printList(Node* head){
+    Node* current = head;
+    while (current != nullptr){
+        //since current is a node pointer, to get any values of the reference you must use the skinny pointer
+        std::cout << current->val << std::endl;
+        current = current->next;
+    }
+};
+
 int main () {
     Node a("A");
     Node b("B");
@@ -28,8 +39,10 @@ int main () {
     b.next = &c;
     c.next = &d;
 
+    //A -> B -> C -> D -> null
+    
 
-
-
+    //once again using the & operator because it needs to be a reference to the memory address of the node pointer
+    printList(&a);
 
 };
