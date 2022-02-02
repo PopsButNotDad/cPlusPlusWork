@@ -4,19 +4,33 @@
 //should return a boolean indicating whether or not the linked list contains the target.
 
 class Node {
-  public:
-    std::string val;
-    Node* next;
+    public:
+        std::string val;
+        Node* next;
 
     Node(std::string initialVal) {
-      val = initialVal;
-      next = nullptr;
+        val = initialVal;
+        next = nullptr;
     }
 };
 
 bool linkedListFind(Node* head, std::string target) {
-  // todo
-  return;
+    Node* current = head;
+
+    while (current != nullptr){
+        if(current->val == target) return true;
+
+        current = current->next;
+    }
+    return false;
+}
+
+bool linkedListFindRe(Node* head, std::string target) {
+    if(head == nullptr) return false;
+
+    if(head->val == target) return true;
+
+    return linkedListFindRe(head->next, target);
 }
 
 int main( ) {
