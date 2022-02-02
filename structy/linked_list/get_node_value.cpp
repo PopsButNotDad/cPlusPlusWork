@@ -91,11 +91,11 @@ int main () {
 //Iterative Complexity
     //n = number of nodes
 
-    //Time: 
-    //Space:
+    //Time: O( n )
+    //Space: O( 1 )
 
 //Recursive Complexity
     //n = number of nodes
 
-    //Time:
-    //Space: 
+    //Time: O( n )
+    //Space: O( n )
