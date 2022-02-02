@@ -11,16 +11,21 @@ class Node {
 
 int sumList(Node* head) {
     int result = 0;
-
     Node* current = head;
-
     while (current != nullptr){
         result = current->val + result;
-
         current = current->next;
     }
-
     return result;
+}
+
+int sumListRe(Node* head){
+    if (head == nullptr) {
+        return 0;
+    }
+
+    return head->val + sumListRe(head->next);
+
 }
 
 int main() {
