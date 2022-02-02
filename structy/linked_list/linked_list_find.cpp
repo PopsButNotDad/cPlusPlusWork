@@ -16,7 +16,6 @@ class Node {
 
 bool linkedListFind(Node* head, std::string target) {
     Node* current = head;
-
     while (current != nullptr){
         if(current->val == target) return true;
 
@@ -27,9 +26,7 @@ bool linkedListFind(Node* head, std::string target) {
 
 bool linkedListFindRe(Node* head, std::string target) {
     if(head == nullptr) return false;
-
     if(head->val == target) return true;
-
     return linkedListFindRe(head->next, target);
 }
 
