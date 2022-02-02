@@ -1,3 +1,6 @@
+//Write a function, sumList, that takes in a pointer to the head of a linked list containing numbers as an argument. 
+//The function should return the total sum of all values in the linked list.
+
 class Node {
     public:
         int val;
