@@ -28,6 +28,15 @@ void printList(Node* head){
     }
 };
 
+void printListRecursive(Node* head){
+    if (head == nullptr){
+        return;
+    }
+
+    std::cout << head->val << std::endl;
+    printListRecursive(head->next);    
+};
+
 int main () {
     Node a("A");
     Node b("B");
@@ -44,5 +53,6 @@ int main () {
 
     //once again using the & operator because it needs to be a reference to the memory address of the node pointer
     printList(&a);
+    printListRecursive(&a);
 
 };
