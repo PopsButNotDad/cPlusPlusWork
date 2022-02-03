@@ -10,19 +10,63 @@
 //You may assume that both input lists are non-empty.
 
 class Node {
-  public:
-    std::string val;
-    Node* next;
+    public:
+        std::string val;
+        Node* next;
 
     Node(std::string initialVal) {
-      val = initialVal;
-      next = nullptr;
+        val = initialVal;
+        next = nullptr;
     }
 };
 
 Node* zipperLists(Node* head1, Node* head2) {
-  // todo
-  return;
+    Node* newHead = head1;
+    Node* tail = newHead;
+    Node* current1 = head1->next;
+    Node* current2 = head2;
+    int count = 1;
+
+  while (current1 != nullptr && current2 != nullptr){
+        if(count % 2 == 0){
+            tail->next = current1;
+            current1 = current1->next;
+        }else {
+            tail->next = current2;
+            current2 = current2->next;
+        }
+        tail = tail->next;
+        count += 1;
+    }
+    if(current1 != nullptr){
+        tail->next=current1;
+    }
+    if(current2 != nullptr){
+        tail->next = current2;
+    }  
+
+return newHead;
+}
+
+Node* zipperListsRe(Node* head1, Node* head2){
+    if(head1 == nullptr){
+        return head2;
+    }
+
+    if(head2 == nullptr){
+        return head1;
+    }
+
+    Node* head1Next = head1;
+    Node* head2Next = head2;
+
+    head1->next = head2;
+
+    Node* remainingHead = zipperListsRe(head1Next, head2Next);
+
+    head2->next = remainingHead;
+
+    return head1;
 }
 
 int main () {
@@ -111,15 +155,15 @@ int main () {
 }
 
 //Iterative Complexity:
-    //
-    //
+    // n = length of list 1
+    // m = length of list 2
 
-    //Time: 
-    //Space: 
+    //Time: O( min(n,m) )
+    //Space: O( 1 )
 
 //Recursive Complexity:
-    //
-    //
+    // n = length of list 1
+    // m = length of list 2
 
     //Time: 
     //Space: 
