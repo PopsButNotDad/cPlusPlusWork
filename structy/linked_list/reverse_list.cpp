@@ -26,9 +26,19 @@ Node* reverseList(Node* head) {
     return prev;
 }
 
+//OVERLOADING FUNCTION
+Node* reverseListRe(Node* current, Node* prev) {
+    if (current == nullptr){
+        return prev;
+    }
+    Node* newHead = reverseListRe(current->next, current);
+    current->next = prev;
+    return newHead;
+}
+
 Node* reverseListRe(Node* head) {
-    // todo
-    return;
+    
+    return reverseListRe(head, nullptr);
 }
 
 int main() {
@@ -74,5 +84,5 @@ int main() {
 //Recursive Complexity
     // n = number of nodes
     
-    //Time:
-    //Space:
+    //Time: O( n )
+    //Space: O( n )
