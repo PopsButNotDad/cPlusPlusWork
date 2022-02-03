@@ -165,5 +165,5 @@ int main () {
     // n = length of list 1
     // m = length of list 2
 
-    //Time: 
-    //Space: 
+    //Time: O( min(n,m) )
+    //Space: O( min(n,m) )
