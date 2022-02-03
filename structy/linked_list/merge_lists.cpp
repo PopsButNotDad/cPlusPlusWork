@@ -21,9 +21,39 @@ class Node {
 
 
 Node* mergeLists(Node* head1, Node* head2) {
-    // todo
-    return;
+    Node dummyHead(0);
+    Node* tail = &dummyHead;
+
+    Node* current1 = head1;
+    Node* current2 = head2;
+
+
+    while (current1 != nullptr && current2 != nullptr){
+        if (current1->val < current2->val){
+            tail->next = current1;
+            current1 = current1->next;
+        } else {
+            tail->next = current2;
+            current2 = current2->next;
+        }
+
+        tail = tail->next;
+    }
+
+    if(current1 == nullptr){
+        tail->next = current2;
+    }
+
+    if(current2 == nullptr){
+        tail->next = current1;
+    }
+    return dummyHead.next;
 }
+
+Node* mergeListsRe(Node* head1, Node* head2) {
+   
+}
+
 
 int main() {
     Node a(5);
@@ -87,3 +117,17 @@ int main() {
     mergeLists(&h, &p);
     // 15 -> 30 -> 67
 }
+
+//Iterative Complexity
+    //n = length of list 1
+    //m = length of list 2
+
+    //Time: O( min(n,m) )
+    //space: O( 1 )
+
+//Recursive Complexity
+    //n = length of list 1
+    //m = length of list 2
+
+    //Time: O( min(n,m) )
+    //Space: O( min(n,m) )
