@@ -18,17 +18,27 @@ bool isUnivalueList(Node* head) {
     Node* current = head;
 
     while(current != nullptr){
-        if(current->val == head->val){
-            current = current->next;
-        } else{
+        if(current->val != head->val){
             return false;
-        }
+        } 
     }
     return true;
 }
 
-bool isUnivalueListRe(Node* head) {
+bool isUnivalueListRe(Node* current, Node* head) {
+    if(current == nullptr){
+        return true;
+    }
 
+    if(current->val != head->val){
+        return false;
+    } 
+
+    return isUnivalueListRe(current->next, head);
+}
+
+bool isUnivalueListRe(Node* head) {
+    isUnivalueListRe(head, head);
 }
 
 int main () {
