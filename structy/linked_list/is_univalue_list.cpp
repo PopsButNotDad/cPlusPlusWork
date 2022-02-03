@@ -26,19 +26,19 @@ bool isUnivalueList(Node* head) {
 }
 
 bool isUnivalueListRe(Node* current, Node* head) {
-    if(current == nullptr){
-        return true;
-    }
-
-    if(current->val != head->val){
-        return false;
-    } 
-
-    return isUnivalueListRe(current->next, head);
+  if (current == nullptr) {
+    return true;
+  }
+  
+  if (current->val != head->val) {
+    return false;
+  }
+  
+  return isUnivalueListRe(current->next, head);
 }
 
 bool isUnivalueListRe(Node* head) {
-    isUnivalueListRe(head, head);
+  isUnivalueListRe(head, head);
 }
 
 int main () {
