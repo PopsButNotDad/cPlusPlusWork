@@ -15,6 +15,18 @@ class Node {
 };
 
 Node* reverseList(Node* head) {
+    Node* current = head;
+    Node* prev = nullptr;
+    while(current != nullptr){
+        Node* next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    return prev;
+}
+
+Node* reverseListRe(Node* head) {
     // todo
     return;
 }
@@ -52,3 +64,15 @@ int main() {
 
     reverseList(&p); // p
 };
+
+//Iterative Complexity
+    // n = number of nodes
+
+    //Time: O( n )
+    //Space:  O( 1 )
+
+//Recursive Complexity
+    // n = number of nodes
+    
+    //Time:
+    //Space:
