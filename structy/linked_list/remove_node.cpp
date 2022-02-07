@@ -10,21 +10,40 @@
 //You may assume that the input list contains the target. 
 
 class Node {
-  public:
-    std::string val;
-    Node* next;
+    public:
+        std::string val;
+        Node* next;
 
     Node(std::string initialVal) {
-      val = initialVal;
-      next = nullptr;
+        val = initialVal;
+        next = nullptr;
     }
 };
 
 
 
 Node* removeNode(Node* head, std::string targetVal) {
-  // todo
-  return;
+    Node* current = head;
+    Node* prev = nullptr;
+
+    if(head->val == targetVal){
+        return head->next;
+    }
+
+    while(current != nullptr){
+        if(current->val == targetVal){
+            prev->next = current->next;
+            break;
+        }
+
+        prev = current;
+        current = current->next;
+    }
+    return head;
+}
+
+Node* removeNodeRe(Node* head, std::string targetVal) {
+    
 }
 
 int main() {
@@ -91,3 +110,9 @@ int main() {
     removeNode(&node1, "t");
     // nullptr
 }
+
+//Complexity
+    //n = number of nodes
+    
+    //Time: O( n )
+    //Space: O( 1 ) 
