@@ -25,35 +25,26 @@ Node *addLists(Node *head1, Node *head2) {
     int carry = 0;
     Node* current1 = head1;
     Node* current2 = head2;
-
     while(current1 != nullptr || current2 != nullptr || carry == 1){
         int val1 = current1 == nullptr ? 0 : current1->val;
         int val2 = current2 == nullptr ? 0 : current2->val;
-
-
         int sum = val1 + val2 + carry;
         carry = sum > 9 ? 1 : 0;
         int digit = sum % 10;
-
         if(current1 != nullptr){
             current1 = current1->next;
         }
-
         if(current2 != nullptr){
             current2 = current2->next;
         }
-
         tail->next = new Node(digit);
         tail = tail->next;
-
     }
-
-
     return dummyHead->next;
 }
 
 Node *addListsRe(Node *head1, Node *head2) {
-    
+
 }
 
 int main() {
