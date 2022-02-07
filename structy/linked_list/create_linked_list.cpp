@@ -21,8 +21,29 @@ class Node {
 
 
 Node* createLinkedList(std::vector<std::string> values) {
-    // todo
-    return;
+    Node* dummyHead = new Node("");
+    Node* tail = dummyHead;
+
+    for(std::string val : values){
+        tail->next = new Node(val);
+        tail = tail->next;
+    }
+
+    
+    return dummyHead->next;
+}
+
+Node* createLinkedListRe(std::vector<std::string> values, int idx) {
+    if(idx == values.size()){
+        return nullptr;
+    }
+
+    Node* head = new Node(values[idx]);
+    head->next = createLinkedListRe(values, idx + 1);
+}
+
+Node* createLinkedListRe(std::vector<std::string> values) {
+    return createLinkedListRe(values, 0);
 }
 
 int main() {
@@ -42,5 +63,16 @@ int main() {
     createLinkedList(values3);
     // nullptr
 
-
 }
+
+//Iterative Complexity
+    //n = number of nodes 
+
+    //Time: O( n )
+    //Space: O( n )
+
+//Recursive Complexity
+    //n = number of nodes 
+
+    //Time: O( n )
+    //Space: O( n )
