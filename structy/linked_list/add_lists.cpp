@@ -43,8 +43,26 @@ Node *addLists(Node *head1, Node *head2) {
     return dummyHead->next;
 }
 
-Node *addListsRe(Node *head1, Node *head2) {
+Node *addListsRe(Node *head1, Node *head2, int carry) {
+    if (head1 == nullptr && head2 == nullptr && carry == 0){
+        return nullptr;
+    } 
 
+    int val1 = head1 == nullptr ? 0 : head1->val;
+    int val2 = head2 == nullptr ? 0 : head2->val;
+
+    int sum = val1 + val1 + carry;
+
+    Node* newHead = new Node(sum % 10);
+    int nextCarry = sum > 9 ? 1 : 0;
+    Node* next1 = head1 == nullptr ? nullptr : head1->next;
+    Node* next2 = head2 == nullptr ? nullptr : head2->next;
+    newHead->next = addListsRe(next1, next2, nextCarry);
+    return newHead;
+}
+
+Node *addListsRe(Node *head1, Node *head2) {
+    return addListsRe(head1, head2, 0);
 }
 
 int main() {
