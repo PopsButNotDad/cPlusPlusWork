@@ -19,8 +19,6 @@ class Node {
     }
 };
 
-
-
 Node* insertNode(Node* head, std::string value, int idx) {
     Node* current = head;
     int count = 0;
