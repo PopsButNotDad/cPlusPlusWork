@@ -105,11 +105,11 @@ int main() {
     removeNode(&node1, "i");
     // h -> j -> i
 
-    Node node1("t");
+    Node node11("t");
 
     // t
 
-    removeNode(&node1, "t");
+    removeNode(&node11, "t");
     // nullptr
 }
 
