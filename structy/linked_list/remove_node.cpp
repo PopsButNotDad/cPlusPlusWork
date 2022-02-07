@@ -20,22 +20,17 @@ class Node {
     }
 };
 
-
-
 Node* removeNode(Node* head, std::string targetVal) {
     Node* current = head;
     Node* prev = nullptr;
-
     if(head->val == targetVal){
         return head->next;
     }
-
     while(current != nullptr){
         if(current->val == targetVal){
             prev->next = current->next;
             break;
         }
-
         prev = current;
         current = current->next;
     }
@@ -43,7 +38,14 @@ Node* removeNode(Node* head, std::string targetVal) {
 }
 
 Node* removeNodeRe(Node* head, std::string targetVal) {
-    
+    if(head == nullptr){
+        return nullptr;
+    }
+    if(head->val == targetVal){
+        return head->next;
+    }
+    head->next = removeNodeRe(head->next, targetVal);
+    return head;
 }
 
 int main() {
@@ -111,8 +113,14 @@ int main() {
     // nullptr
 }
 
-//Complexity
+//Iterative Complexity
     //n = number of nodes
     
     //Time: O( n )
     //Space: O( 1 ) 
+
+//Recursive Complexity
+    //n = number of nodes
+
+    //Time: O( n )
+    //Space: O( n )
