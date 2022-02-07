@@ -26,9 +26,9 @@ Node* insertNode(Node* head, std::string value, int idx) {
     int count = 0;
 
     if(idx == 0){
-        Node newHead(value);
-        newHead.next = head;
-        return &newHead;
+        Node* newHead = new Node(value);
+        newHead->next = head;
+        return newHead;
     }
 
     while(current != nullptr){
@@ -44,6 +44,11 @@ Node* insertNode(Node* head, std::string value, int idx) {
 
 
     return head;
+}
+
+Node* insertNodeRe(Node* head, std::string value, int idx) {
+    
+
 }
 
 int main() {
