@@ -22,8 +22,28 @@ class Node {
 
 
 Node* insertNode(Node* head, std::string value, int idx) {
-    
-    return;
+    Node* current = head;
+    int count = 0;
+
+    if(idx == 0){
+        Node newHead(value);
+        newHead.next = head;
+        return &newHead;
+    }
+
+    while(current != nullptr){
+        if(count == idx - 1){
+            Node* temp = current->next;
+            Node* insertedNode = new Node(value);
+            current->next = insertedNode; 
+            insertedNode->next = temp;
+        }
+        count += 1;
+        current = current->next;
+    }
+
+
+    return head;
 }
 
 int main() {
@@ -79,3 +99,16 @@ int main() {
     insertNode(&a2, "z", 0);
     // z -> a -> b
 }
+
+
+//Iterative Complexity
+    //n = number of nodes
+
+    //Time: O( n )
+    //Space: O( 1 )
+
+//Recursive Complexity
+    //n = number of nodes
+
+    //Time: O( n )
+    //Space: O( n )
