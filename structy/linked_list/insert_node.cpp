@@ -47,8 +47,18 @@ Node* insertNode(Node* head, std::string value, int idx) {
 }
 
 Node* insertNodeRe(Node* head, std::string value, int idx) {
-    
-
+    if(head == nullptr){
+        return;
+    }
+    if(idx == 1){
+        Node* insertedNode = new Node(value);
+        Node* temp = head->next;
+        head->next = insertedNode;
+        insertedNode->next = temp;
+    } else{
+        insertNode(head->next, value,  idx-1);
+    }
+    return head;
 }
 
 int main() {
