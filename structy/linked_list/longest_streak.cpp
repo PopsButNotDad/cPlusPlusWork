@@ -12,8 +12,6 @@ class Node {
     }
 };
 
-
-
 int longestStreak(Node* head) {
     Node* currentNode = head;
     int maxStreak = 0;
