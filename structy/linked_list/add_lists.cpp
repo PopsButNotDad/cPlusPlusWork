@@ -123,3 +123,11 @@ int main() {
     addLists(&a10000, &b10000);
     // 5 -> 0 -> 0 -> 1
 }
+
+//Iterative & Recursive Complexity
+    //n = length of list 1
+    //m = length of list 2
+
+    //Time: O( max(n,m) )
+    //Space: O( max(n,m) )
+
