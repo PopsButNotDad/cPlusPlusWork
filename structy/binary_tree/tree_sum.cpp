@@ -73,3 +73,9 @@ int main() {
 
     treeSum(nullptr); // -> 0
 }
+
+//Recursive complexity
+    //n = number of nodes
+
+    //Time: O( n )
+    //Space: O( n )
