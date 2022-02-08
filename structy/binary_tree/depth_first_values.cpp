@@ -141,3 +141,9 @@ int main() {
     depthFirstValues(nullptr); 
     //    -> []
 }
+
+//Complexity
+    //n = number of nodes
+
+    //Time: O( n )
+    //space:  O( n )
