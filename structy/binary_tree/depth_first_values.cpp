@@ -5,6 +5,7 @@
 //Write a function, depthFirstValues, that takes in a pointer to the root of a binary tree. The function should
 //return a vector containing all values of the tree in depth-first order.
 
+//LOOK AT DOCUMENTATION FOR STACK
 
 class Node {
     public:
