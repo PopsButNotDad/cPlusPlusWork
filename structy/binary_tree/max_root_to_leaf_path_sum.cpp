@@ -1,5 +1,5 @@
-#include <stack>
-#include <queue>
+#include <limits>
+#include <algorithm>
 
 //Write a function, maxPathSum, that takes in a pointer to the root of a binary tree that contains number values.
 //The function should return the maximum sum of any root to leaf path within the tree.
@@ -23,8 +23,25 @@ class Node {
 
 //Depth First Recursive
 int maxPathSum(Node* root) {
-    
-    return;
+    if(root == nullptr){
+        return std::numeric_limits<int>::min();
+    }
+
+    if(root->left == nullptr && root->right == nullptr){
+        return root->val;
+    }
+
+
+    // int leftPath = maxPathSum(root->left);
+    // int rightPath = maxPathSum(root->right);
+
+    // if(leftPath > rightPath){
+    //     return root->val + leftPath;
+    // } else {
+    //     return root->val + rightPath;
+    // }
+
+    return root->val + std::max({maxPathSum(root->left), maxPathSum(root->right)});
 }
 
 int main() {
