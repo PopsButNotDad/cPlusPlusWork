@@ -34,13 +34,21 @@ std::vector<std::string>* pathFinder(Node* root, std::string targetVal) {
     }
 
     if(root->val == targetVal){
-        return;
+        return new std::vector<std::string> ({ root->val });
     }
 
 
-    pathFinder(root->left, targetVal);
-    pathFinder(root->right, targetVal);
-    return;
+    std::vector<std::string>* left = pathFinder(root->left, targetVal);
+    if(left != nullptr){
+        left->push_back(root->val);
+        return left;
+    }
+     std::vector<std::string>* right = pathFinder(root->right, targetVal);
+    if(right != nullptr){
+        right->push_back(root->val);
+        return right;
+    }
+    return nullptr;
 }
 
 int main() {
