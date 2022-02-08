@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <stack>
 
 //Write a function, depthFirstValues, that takes in a pointer to the root of a binary tree. The function should
 //return a vector containing all values of the tree in depth-first order.
@@ -22,7 +23,24 @@ class Node {
 
 std::vector<std::string> depthFirstValues(Node* root) {
     
-    return;
+    std::vector<std::string> values;
+    std::stack<Node*> stack;
+    if(root != nullptr){
+        stack.push(root);
+    }
+
+    while (stack.size() > 0){
+        Node* current =  stack.top();
+        values.push_back(current->val);
+        stack.pop();
+        if(current->right != nullptr){
+            stack.push(current->right);
+        }
+        if(current->left != nullptr){
+            stack.push(current->left);
+        }
+    }
+    return values;
 }
 
 int main() {
