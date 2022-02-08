@@ -4,16 +4,16 @@
 //The function should return a boolean indicating whether or not the value is contained in the tree.
 
 class Node {
-  public:
-    std::string val;
-    Node* left;
-    Node* right;
+    public:
+        std::string val;
+        Node* left;
+        Node* right;
 
 
     Node(std::string initialVal) {
-      val = initialVal;
-      left = nullptr;
-      right = nullptr;
+        val = initialVal;
+        left = nullptr;
+        right = nullptr;
     }
 };
 
