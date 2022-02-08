@@ -1,5 +1,7 @@
 #include <vector>
 #include <string>
+#include <stack>
+#include <queue>
 
 //Write a function, pathFinder, that takes in a pointer to the root of a binary tree and a target value.
 //The function should return a pointer to a vector respresenting a path to the target value.
@@ -11,24 +13,34 @@
 //You may assume that the tree contains unique values.
 
 class Node {
-  public:
-    std::string val;
-    Node* left;
-    Node* right;
+    public:
+        std::string val;
+        Node* left;
+        Node* right;
 
 
     Node(std::string initialVal) {
-      val = initialVal;
-      left = nullptr;
-      right = nullptr;
+        val = initialVal;
+        left = nullptr;
+        right = nullptr;
     }
 };
 
 
 
 std::vector<std::string>* pathFinder(Node* root, std::string targetVal) {
-  // todo
-  return;
+    if(root == nullptr){
+        return nullptr;
+    }
+
+    if(root->val == targetVal){
+        return;
+    }
+
+
+    pathFinder(root->left, targetVal);
+    pathFinder(root->right, targetVal);
+    return;
 }
 
 int main() {
@@ -163,5 +175,5 @@ int main() {
 //Complexity
     //n = number of nodes
 
-    //Time: 
-    //Space:
+    //Time: O( n )
+    //Space: O( n )
