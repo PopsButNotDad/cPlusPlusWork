@@ -1,4 +1,6 @@
 #include <string>
+#include <stack>
+#include <queue>
 
 //Write a function, treeIncludes, that takes in a pointer to the root of a binary tree and a target value.
 //The function should return a boolean indicating whether or not the value is contained in the tree.
@@ -18,10 +20,67 @@ class Node {
 };
 
 
+//Breadth first
+// bool treeIncludes(Node* root, std::string targetVal) {
+//     std::queue<Node*> queue;
 
-bool treeIncludes(Node* root, std::string targetVal) {
-    // todo
-    return;
+//     if(root != nullptr){
+//         queue.push(root);
+//     } 
+
+//     while(queue.size() > 0){
+//         Node* current = queue.front();
+//         queue.pop();
+//         if(current->val == targetVal){
+//             return true;
+//         }
+
+//         if(current->left != nullptr){
+//             queue.push(current->left);
+//         }
+//         if(current->right != nullptr){
+//             queue.push(current->right);
+//         }
+
+//     }
+//     return false;
+// }
+
+
+//depth first iterative
+// bool treeIncludes(Node* root, std::string targetVal) {
+//     std::stack<Node*> stack;
+
+//     if(root != nullptr){
+//         stack.push(root);
+//     } 
+
+//     while(stack.size() > 0){
+//         Node* current = stack.top();
+//         stack.pop();
+//         if(current->val == targetVal){
+//             return true;
+//         }
+
+//         if(current->left != nullptr){
+//             stack.push(current->left);
+//         }
+//         if(current->right != nullptr){
+//             stack.push(current->right);
+//         }
+
+//     }
+//     return false;
+// }
+
+//depth first recursive
+bool treeIncludes(Node* root, std::string targetVal){
+    if(root == nullptr){
+        return false;
+    }
+
+    
+    
 }
 
 int main() {
