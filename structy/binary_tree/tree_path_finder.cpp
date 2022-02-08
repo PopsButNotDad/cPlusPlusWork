@@ -40,12 +40,12 @@ std::vector<std::string>* pathFinder(Node* root, std::string targetVal) {
 
     std::vector<std::string>* left = pathFinder(root->left, targetVal);
     if(left != nullptr){
-        left->push_back(root->val);
+        left->insert(left->begin(), root->val);
         return left;
     }
      std::vector<std::string>* right = pathFinder(root->right, targetVal);
     if(right != nullptr){
-        right->push_back(root->val);
+        right->insert(right->begin(), root->val);
         return right;
     }
     return nullptr;
