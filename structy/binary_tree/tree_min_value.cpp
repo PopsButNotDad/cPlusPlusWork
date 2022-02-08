@@ -1,5 +1,6 @@
 #include <stack>
-#include <queue>
+#include <stack>
+#include <limits>
 
 //Write a function, treeMinValue, that takes in a pointer to the root of a binary tree that contains number values.
 //The function should return the minimum value within the tree.
@@ -22,9 +23,63 @@ class Node {
 
 
 
+//Breadth first iterative
+// int treeMinValue(Node* root) {
+//   std::queue<Node*> queue;
+//   double smallest = std::numeric_limits<double>::infinity();
+  
+//   if(root != nullptr){
+//     queue.push(root);
+//   }
+  
+//   while(queue.size() > 0){
+//     Node* current = queue.front();
+//     queue.pop();
+//     if(current->val < smallest){
+//       smallest = current->val;
+//     }
+    
+//     if(current->left != nullptr){
+//       queue.push(current->left);
+//     }
+    
+//     if(current->right != nullptr){
+//       queue.push(current->right);
+//     }
+//   }
+//   return smallest;
+// }
+
+//Depth first iterative
+// int treeMinValue(Node* root) {
+//   std::stack<Node*> stack;
+//   double smallest = std::numeric_limits<double>::infinity();
+  
+//   if(root != nullptr){
+//     stack.push(root);
+//   }
+  
+//   while(stack.size() > 0){
+//     Node* current = stack.top();
+//     stack.pop();
+//     if(current->val < smallest){
+//       smallest = current->val;
+//     }
+    
+//     if(current->left != nullptr){
+//       stack.push(current->left);
+//     }
+    
+//     if(current->right != nullptr){
+//       stack.push(current->right);
+//     }
+//   }
+//   return smallest;
+// }
+
+//Depth First Recursive
 int treeMinValue(Node* root) {
 
-    return;
 }
 
 int main() {
