@@ -1,6 +1,7 @@
 #include <stack>
 #include <stack>
 #include <limits>
+#include <algorithm>
 
 //Write a function, treeMinValue, that takes in a pointer to the root of a binary tree that contains number values.
 //The function should return the minimum value within the tree.
@@ -80,11 +81,13 @@ class Node {
 //Depth First Recursive
 int treeMinValue(Node* root) {
     if(root == nullptr){
-        return std::numeric_limits<double>::infinity();
+        return std::numeric_limits<int>::max();
     }
-
-
-
+    return std::min({
+        root->val, 
+        treeMinValue(root->left), 
+        treeMinValue(root->right)
+    });
 
 }
 
