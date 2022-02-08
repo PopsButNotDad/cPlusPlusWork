@@ -79,6 +79,12 @@ class Node {
 
 //Depth First Recursive
 int treeMinValue(Node* root) {
+    if(root == nullptr){
+        return std::numeric_limits<double>::infinity();
+    }
+
+
+
 
 }
 
@@ -158,3 +164,9 @@ int main() {
 
     treeMinValue(&a3); // -> 42
 }
+
+//Complexity for both Iterative and Recursive
+    //n = number of nodes 
+
+    //Time: O( n )
+    //Space: O( n )
