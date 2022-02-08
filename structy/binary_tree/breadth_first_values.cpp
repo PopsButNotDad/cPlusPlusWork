@@ -24,6 +24,7 @@ class Node {
 
 
 std::vector<std::string> breadthFirstValues(Node* root) {
+    std::vector<std::string> values;
     std::queue<Node*> queue;
     if(root != nullptr){
         queue.push(root);
@@ -32,8 +33,15 @@ std::vector<std::string> breadthFirstValues(Node* root) {
         Node* current = queue.front();
         //QUEUE .POP DOES NOT RETURN A VALUE IT JUST REMOVES IT. 
         queue.pop();
+        values.push_back(current->val);
+        if(current->left != nullptr){
+            queue.push(current->left);
+        }
+        if(current->right != nullptr){
+            queue.push(current->right);
+        }
     }
-    return;
+    return values;
 }
 
 int main() {
