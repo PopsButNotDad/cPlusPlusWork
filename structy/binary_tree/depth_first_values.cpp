@@ -55,7 +55,7 @@ void depthFirstValuesRe(Node* root, std::vector<std::string> &values) {
 std::vector<std::string> depthFirstValuesRe(Node* root) {
     std::vector<std::string> values;
     depthFirstValuesRe(root, values);
-    return;
+    return values;
 }
 
 
