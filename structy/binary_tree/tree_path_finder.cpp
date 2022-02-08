@@ -25,7 +25,7 @@ class Node {
     }
 };
 
-
+//user helper function to reverse after vector is made
 
 std::vector<std::string>* _pathFinder(Node* root, std::string targetVal) {
     if(root == nullptr){
@@ -36,7 +36,6 @@ std::vector<std::string>* _pathFinder(Node* root, std::string targetVal) {
         return new std::vector<std::string> ({ root->val });
     }
 
-    
     std::vector<std::string>* left = _pathFinder(root->left, targetVal);
     if(left != nullptr){
         //insert is bad, has to shift everything over (runs in O( n ) time)
@@ -63,8 +62,6 @@ std::vector<std::string>* pathFinder(Node* root, std::string targetVal) {
         std::reverse(res->begin(), res->end());
         return res;
     }
-
-
 
 }
 
