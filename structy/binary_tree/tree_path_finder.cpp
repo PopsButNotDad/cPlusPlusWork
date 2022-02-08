@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
-#include <stack>
-#include <queue>
+#include <algorithm>
 
 //Write a function, pathFinder, that takes in a pointer to the root of a binary tree and a target value.
 //The function should return a pointer to a vector respresenting a path to the target value.
@@ -28,7 +27,7 @@ class Node {
 
 
 
-std::vector<std::string>* pathFinder(Node* root, std::string targetVal) {
+std::vector<std::string>* _pathFinder(Node* root, std::string targetVal) {
     if(root == nullptr){
         return nullptr;
     }
@@ -37,18 +36,36 @@ std::vector<std::string>* pathFinder(Node* root, std::string targetVal) {
         return new std::vector<std::string> ({ root->val });
     }
 
-
-    std::vector<std::string>* left = pathFinder(root->left, targetVal);
+    
+    std::vector<std::string>* left = _pathFinder(root->left, targetVal);
     if(left != nullptr){
-        left->insert(left->begin(), root->val);
+        //insert is bad, has to shift everything over (runs in O( n ) time)
+        //left->insert(left->begin(), root->val);
+        left->push_back(root->val);
         return left;
     }
-     std::vector<std::string>* right = pathFinder(root->right, targetVal);
+     std::vector<std::string>* right = _pathFinder(root->right, targetVal);
     if(right != nullptr){
-        right->insert(right->begin(), root->val);
+        //insert is bad, has to shift everything over (runs in O( n ) time)
+        //right->insert(right->begin(), root->val);
+        right->push_back(root->val);
         return right;
     }
     return nullptr;
+}
+
+std::vector<std::string>* pathFinder(Node* root, std::string targetVal) {
+    std::vector<std::string>* res = _pathFinder(root, targetVal);
+
+    if(res == nullptr){
+        return res;
+    } else{
+        std::reverse(res->begin(), res->end());
+        return res;
+    }
+
+
+
 }
 
 int main() {
