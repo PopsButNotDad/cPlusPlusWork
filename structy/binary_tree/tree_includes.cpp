@@ -78,13 +78,10 @@ bool treeIncludes(Node* root, std::string targetVal){
     if(root == nullptr){
         return false;
     }
-
     if(root->val == targetVal){
         return true;
     }
-
-    return treeIncludes(root->left, targetVal);
-    
+    return treeIncludes(root->left, targetVal) || treeIncludes(root->right, targetVal);
 }
 
 int main() {
