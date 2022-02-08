@@ -1,3 +1,7 @@
+#include <queue>
+#include <stack>
+#include <iostream>
+
 //Write a function, treeSum, that takes in a pointer to the root of a binary tree that contains number values.
 //The function should return the total sum of all values in the tree.
 
@@ -16,10 +20,65 @@ class Node {
 };
 
 
+//Breadth first
+// int treeSum(Node* root) {
+//     int result = 0;
+//     std::queue<Node*> queue;
 
+//     if(root != nullptr){
+//         queue.push(root);
+//     }
+
+//     while(queue.size() > 0){
+//         Node* current = queue.front();
+//         queue.pop();
+
+//         result += current->val;
+
+//         if(current->left != nullptr){
+//             queue.push(current->left);
+//         }
+
+//         if(current->right != nullptr){
+//             queue.push(current->right);
+//         }
+//     }
+
+//     return result;
+// }
+
+//Depth First Iterative
+// int treeSum(Node* root) {
+//     int result = 0;
+//     std::stack<Node*> stack;
+
+//     if(root != nullptr){
+//         stack.push(root);
+//     }
+
+//     while(stack.size() > 0){
+//         Node* current = stack.top();
+//         stack.pop();
+//         result += current->val;
+//         if(current->right != nullptr){
+//             stack.push(current->right);
+//         }
+//         if(current->left != nullptr){
+//             stack.push(current->left);
+//         }
+
+
+//     }
+//     return result;
+// }
+
+//Depth First Recursive
 int treeSum(Node* root) {
-    // todo
-    return;
+    if(root == nullptr){
+        return 0;
+    }
+
+    
 }
 
 int main() {
