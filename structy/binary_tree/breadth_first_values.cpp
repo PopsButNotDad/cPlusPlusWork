@@ -2,6 +2,11 @@
 #include <vector>
 #include <queue>
 
+//Write a function, breadthFirstValues, that takes in a pointer to the root of a binary tree. The function should
+//return a vector containing all values of the tree in breadth-first order.
+
+//LOOK AT DOCUMENTATION FOR QUEUE
+
 class Node {
     public:
         std::string val;
@@ -19,7 +24,15 @@ class Node {
 
 
 std::vector<std::string> breadthFirstValues(Node* root) {
-    
+    std::queue<Node*> queue;
+    if(root != nullptr){
+        queue.push(root);
+    }
+    while(queue.size() > 0){
+        Node* current = queue.front();
+        //QUEUE .POP DOES NOT RETURN A VALUE IT JUST REMOVES IT. 
+        queue.pop();
+    }
     return;
 }
 
