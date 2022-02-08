@@ -43,6 +43,23 @@ std::vector<std::string> depthFirstValues(Node* root) {
     return values;
 }
 
+void depthFirstValuesRe(Node* root, std::vector<std::string> &values) {
+    if(root == nullptr){
+        return;
+    }
+    values.push_back(root->val);
+    depthFirstValuesRe(root->left, values);
+    depthFirstValuesRe(root->right, values);
+}
+
+std::vector<std::string> depthFirstValuesRe(Node* root) {
+    std::vector<std::string> values;
+    depthFirstValuesRe(root, values);
+    return;
+}
+
+
+
 int main() {
     Node a("a");
     Node b("b");
