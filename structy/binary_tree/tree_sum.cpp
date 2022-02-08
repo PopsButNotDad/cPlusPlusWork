@@ -78,7 +78,7 @@ int treeSum(Node* root) {
         return 0;
     }
 
-    
+    return root->val + treeSum(root->left) + treeSum(root->right);
 }
 
 int main() {
@@ -133,7 +133,7 @@ int main() {
     treeSum(nullptr); // -> 0
 }
 
-//Recursive complexity
+//Complexity for both iterative and recursive
     //n = number of nodes
 
     //Time: O( n )
