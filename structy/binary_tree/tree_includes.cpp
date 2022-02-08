@@ -79,7 +79,11 @@ bool treeIncludes(Node* root, std::string targetVal){
         return false;
     }
 
-    
+    if(root->val == targetVal){
+        return true;
+    }
+
+    return treeIncludes(root->left, targetVal);
     
 }
 
