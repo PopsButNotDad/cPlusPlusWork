@@ -128,3 +128,9 @@ int main() {
     //   ["z"]
     // ]
 }
+
+//Complexity
+    //n = number of nodes 
+
+    //Time: ~O( n )
+    //Space: ~O( n )
