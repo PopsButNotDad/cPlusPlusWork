@@ -79,8 +79,14 @@ class Node {
 
 //Depth First Recursive
 int treeValueCount(Node* root, int targetVal) {
+    if(root == nullptr){
+        return 0;
+    }
+
+    if(root->val == targetVal){
+        return 1;
+    }
     
-    return;
 }
 
 int main() {
@@ -185,5 +191,5 @@ int main() {
 //Complexity
     //n = number of nodes 
 
-    //Time: 
-    //Space:
+    //Time: O( n )
+    //Space: O( n )
