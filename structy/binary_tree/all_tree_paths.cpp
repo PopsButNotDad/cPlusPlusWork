@@ -23,14 +23,10 @@ class Node {
     }
 };
 
-
-
 std::vector<std::vector<std::string>> allTreePaths(Node* root) {
     // todo
     return;
 }
-
-
 
 int main() {
     Node a1("a");
