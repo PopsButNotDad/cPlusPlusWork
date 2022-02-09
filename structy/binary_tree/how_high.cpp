@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 
 //Write a function, howHigh, that takes in a pointer to the root of a binary tree. The function should return a number
 //representing the height of the tree.
@@ -22,10 +23,12 @@ class Node {
 };
 
 
-
 int howHigh(Node* root) {
-  // todo
-  return;
+    if(root == nullptr){
+        return -1;
+    }
+    return 1 + std::max(howHigh(root->left), howHigh(root->right));
+    
 }
 
 int main() {
@@ -94,3 +97,9 @@ int main() {
 
     howHigh(nullptr); // -> -1
 }
+
+//Complexity: 
+    //n = number of nodes 
+
+    //Time: O( n )
+    //Space: O( n )
