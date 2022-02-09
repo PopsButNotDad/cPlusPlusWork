@@ -8,16 +8,16 @@
 //If the tree is empty return -1;
 
 class Node {
-  public:
-    std::string val;
-    Node* left;
-    Node* right;
+    public:
+        std::string val;
+        Node* left;
+        Node* right;
 
 
     Node(std::string initialVal) {
-      val = initialVal;
-      left = nullptr;
-      right = nullptr;
+        val = initialVal;
+        left = nullptr;
+        right = nullptr;
     }
 };
 
