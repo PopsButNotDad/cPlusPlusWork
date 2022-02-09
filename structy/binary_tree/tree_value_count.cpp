@@ -1,26 +1,86 @@
+#include <stack>
+#include <queue>
+
 //Write a function, treeValueCount, that takes in a pointer to the root of a binary treeand a target value.
 //The function should return the number of times that target occurs in the tree.
 
 
 class Node {
-  public:
-    int val;
-    Node* left;
-    Node* right;
+    public:
+        int val;
+        Node* left;
+        Node* right;
 
 
     Node(int initialVal) {
-      val = initialVal;
-      left = nullptr;
-      right = nullptr;
+        val = initialVal;
+        left = nullptr;
+        right = nullptr;
     }
 };
 
 
+//Breadth First Iterative
+// int treeValueCount(Node* root, int targetVal) {
+//     std::queue<Node*> queue;
+//     int count = 0;
 
+//     if(root != nullptr){
+//         queue.push(root);
+//     }
+
+//     while(queue.size() > 0){
+//         Node* current = queue.front();
+//         queue.pop();
+
+//         if(current->val == targetVal){
+//             count += 1;
+//         }
+
+//         if(current->left != nullptr){
+//             queue.push(current->left);
+//         }
+
+//         if(current->right != nullptr){
+//             queue.push(current->right);
+//         }
+//     }
+//     return count;
+// }
+
+//Depth First Iterative
+// int treeValueCount(Node* root, int targetVal) {
+//     std::stack<Node*> stack;
+//     int count = 0;
+
+//     if(root!=nullptr){
+//         stack.push(root);
+//     }
+
+//     while(stack.size() > 0){
+//         Node* current = stack.top();
+//         stack.pop();
+
+//         if(current->val == targetVal){
+//             count += 1;
+//         }
+
+//         if(current->left != nullptr){
+//             stack.push(current->left);
+//         }
+
+//         if(current->right != nullptr){
+//             stack.push(current->right);
+//         }
+//     }
+    
+//     return count;
+// }
+
+//Depth First Recursive
 int treeValueCount(Node* root, int targetVal) {
-  // todo
-  return;
+    
+    return;
 }
 
 int main() {
@@ -121,3 +181,9 @@ int main() {
 
     treeValueCount(nullptr, 42); // -> 0
 }
+
+//Complexity
+    //n = number of nodes 
+
+    //Time: 
+    //Space:
