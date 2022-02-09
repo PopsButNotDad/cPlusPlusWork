@@ -83,10 +83,18 @@ int treeValueCount(Node* root, int targetVal) {
         return 0;
     }
 
-    if(root->val == targetVal){
-        return 1;
-    }
-    
+
+    //ternary operator can refactor this
+    // if(root->val == targetVal){
+    //     return 1 + treeValueCount(root->left, targetVal) + treeValueCount(root->right, targetVal);
+    // } else {
+    //     return treeValueCount(root->left, targetVal) + treeValueCount(root->right, targetVal);
+    // }
+
+    int match = root->val == targetVal ? 1 : 0;
+
+    return match + treeValueCount(root->left, targetVal) + treeValueCount(root->right, targetVal);
+
 }
 
 int main() {
