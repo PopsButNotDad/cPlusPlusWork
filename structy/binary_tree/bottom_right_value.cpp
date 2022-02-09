@@ -1,4 +1,5 @@
 #include <string>
+#include <queue>
 
 //Write a function, bottomRightValue, that takes in a pointer to the root of a binary tree. The function should return
 //the right-most value in the bottom-most level of the tree.
@@ -22,8 +23,23 @@ class Node {
 
 
 std::string bottomRightValue(Node* root) {
-    // todo
-    return;
+    std::queue<Node*> queue;
+    queue.push(root);
+
+    Node* current;
+    while(queue.size() > 0){
+        current = queue.front();
+        queue.pop();
+
+        if(current->left != nullptr){
+            queue.push(current->left);
+        }
+
+        if(current->right != nullptr){
+            queue.push(current->right);
+        }
+    }
+    return current->val;
 }
 
 int main() {
@@ -140,5 +156,5 @@ int main() {
 //Complexity
     //n = number of nodes 
 
-    //Time: 
-    //Space: 
+    //Time: O( n )
+    //Space: O( n )
