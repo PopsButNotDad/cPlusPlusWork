@@ -24,8 +24,27 @@ class Node {
 };
 
 std::vector<std::vector<std::string>> allTreePaths(Node* root) {
-    // todo
-    return;
+    if(root == nullptr){
+        return std::vector<std::vector<std::string>>();
+    }
+
+    if (root->left == nullptr && root->right == nullptr){
+        return std::vector<std::vector<std::string>>{ { root->val } };
+    }
+
+    std::vector<std::vector<std::string>> result;
+
+    std::vector<std::vector<std::string>> leftPaths = allTreePaths(root->left);
+    for(std::vector<std::string> path : leftPaths){
+        path.insert(path.begin(), root->val);
+        result.push_back(path);
+    }
+    std::vector<std::vector<std::string>> rightPaths = allTreePaths(root->left);
+    for(std::vector<std::string> path : rightPaths){
+        path.insert(path.begin(), root->val);
+        result.push_back(path);
+    }
+    return result;
 }
 
 int main() {
