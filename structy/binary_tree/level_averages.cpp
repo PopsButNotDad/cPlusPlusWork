@@ -1,6 +1,5 @@
 #include <vector>
-#include <queue>
-#include <tuple>
+
 
 //Write a function, levelAverages, That takes in a pointer to the root of a binary tree that contains number
 //values. The function should return a vector containing the average value of each level.
@@ -19,26 +18,45 @@ class Node {
     }
 };
 
+float average(std::vector<float> nums){
+    float sum = 0;
+    for (float num : nums){
+        sum += num;
+    }
 
-//Breadth First Iterative
+    return sum / nums.size();
+}
+
+void fillLevels(Node* root,std::vector<std::vector<float>> &levels, int level ){
+    if(root==nullptr){
+        return;
+    }
+
+    if(levels.size() == level){
+        levels.push_back(std::vector<float> { root->val });
+    } else {
+        levels[level].push_back({ root->val });
+    }
+
+    fillLevels(root->left, levels, level+1);
+    fillLevels(root->right, levels, level+1);
+
+}
+
 std::vector<float> levelAverages(Node* root) {
-    std::queue<std::tuple<Node*, int>> queue;
+    std::vector<std::vector<float>> levels;
+
+    fillLevels(root, levels, 0);
 
     std::vector<float> result;
 
-    if(root != nullptr) {
-        queue.push(std::tuple {root, 0});
-    }
-
-    while(queue.size() > 0){
-        auto [current, level] = queue.front();
-
-
-
+    for(std::vector<float> level : levels) {
+        result.push_back(average(level));
     }
 
     return result;
 }
+
 
 int main() {
     Node a1(3);
@@ -141,3 +159,9 @@ int main() {
 
     levelAverages(nullptr); // -> [ ]
 }
+
+//Complexity
+    //n = number of nodes 
+
+    //Time: O( n )
+    //Space: O( n )
