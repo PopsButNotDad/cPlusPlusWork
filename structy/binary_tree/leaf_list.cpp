@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <stack>
 
 //Write a function, leafList, that takes in a pointer to the root of a binary tree and returns a vector containing the
 //values of all leaf nodes in left-to-right order.
@@ -22,8 +23,32 @@ class Node {
 
 
 std::vector<std::string> leafList(Node* root) {
-    // todo
-    return;
+    std::stack<Node*> stack;
+    std::vector<std::string> result;
+
+    if(root != nullptr){
+        stack.push(root);
+    }
+
+    while(stack.size() > 0){
+        Node* current = stack.top();
+        stack.pop();
+
+        if(current->right == nullptr && current->left == nullptr){
+            result.push_back(current->val);
+        }
+
+        if(current->right != nullptr){
+            stack.push(current->right);
+        }
+
+        if(current->left != nullptr){
+            stack.push(current->left);
+        }
+
+        
+    }
+    return result;
 }
 
 int main() {
@@ -108,3 +133,9 @@ int main() {
 
     leafList(nullptr); // -> [ ]
 }
+
+//Complexity
+    //n = number of nodes
+
+    //Time: O( n )
+    //Space: O( n )
