@@ -21,34 +21,39 @@ class Node {
 };
 
 
+//Depth First Iterative
+// std::vector<std::string> leafList(Node* root) {
+//     std::stack<Node*> stack;
+//     std::vector<std::string> result;
 
-std::vector<std::string> leafList(Node* root) {
-    std::stack<Node*> stack;
-    std::vector<std::string> result;
+//     if(root != nullptr){
+//         stack.push(root);
+//     }
 
-    if(root != nullptr){
-        stack.push(root);
-    }
+//     while(stack.size() > 0){
+//         Node* current = stack.top();
+//         stack.pop();
 
-    while(stack.size() > 0){
-        Node* current = stack.top();
-        stack.pop();
+//         if(current->right == nullptr && current->left == nullptr){
+//             result.push_back(current->val);
+//         }
 
-        if(current->right == nullptr && current->left == nullptr){
-            result.push_back(current->val);
-        }
+//         if(current->right != nullptr){
+//             stack.push(current->right);
+//         }
 
-        if(current->right != nullptr){
-            stack.push(current->right);
-        }
-
-        if(current->left != nullptr){
-            stack.push(current->left);
-        }
+//         if(current->left != nullptr){
+//             stack.push(current->left);
+//         }
 
         
-    }
-    return result;
+//     }
+//     return result;
+// }
+
+//Depth First Recurisve
+std::vector<std::string> leafList(Node* root) {
+
 }
 
 int main() {
