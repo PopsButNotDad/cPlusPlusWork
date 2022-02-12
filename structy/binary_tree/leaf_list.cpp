@@ -51,8 +51,27 @@ class Node {
 //     return result;
 // }
 
-//Depth First Recurisve
+
+//Depth First Recurisve with helper function
+void fillLeaves(Node* root, std::vector<std::string> &leaves){
+    if (root == nullptr){
+        return;
+    }
+
+    if(root->left == nullptr && root->right == nullptr){
+        leaves.push_back(root->val);
+    }
+
+    fillLeaves(root->left, leaves);
+    fillLeaves(root->right, leaves);
+}
+
 std::vector<std::string> leafList(Node* root) {
+    std::vector<std::string> leaves;
+
+    fillLeaves(root, leaves);
+    return leaves;
+
 
 }
 
