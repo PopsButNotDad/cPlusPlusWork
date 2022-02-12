@@ -1,4 +1,6 @@
 #include <vector>
+#include <queue>
+#include <tuple>
 
 //Write a function, levelAverages, That takes in a pointer to the root of a binary tree that contains number
 //values. The function should return a vector containing the average value of each level.
@@ -18,10 +20,24 @@ class Node {
 };
 
 
-
+//Breadth First Iterative
 std::vector<float> levelAverages(Node* root) {
-    // todo
-    return;
+    std::queue<std::tuple<Node*, int>> queue;
+
+    std::vector<float> result;
+
+    if(root != nullptr) {
+        queue.push(std::tuple {root, 0});
+    }
+
+    while(queue.size() > 0){
+        auto [current, level] = queue.front();
+
+
+
+    }
+
+    return result;
 }
 
 int main() {
