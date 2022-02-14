@@ -43,7 +43,7 @@ int minimumIsland(std::vector<std::vector<char>> grid) {
         for(int c = 0; c < grid[0].size(); c+=1){
             int islandSize = explore(grid, r, c, visited);
 
-            if((islandSize != -1) && min == 0 || islandSize < min){
+            if(islandSize != -1 && (min == 0 || islandSize < min)){
                 min = islandSize;
             }
         }
