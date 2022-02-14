@@ -62,29 +62,29 @@ int main() {
     };
     minimumIsland(grid); // -> 2
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid1 {
         {'L', 'W', 'W', 'L', 'W'},
         {'L', 'W', 'W', 'L', 'L'},
         {'W', 'L', 'W', 'L', 'W'},
         {'W', 'W', 'W', 'W', 'W'},
         {'W', 'W', 'L', 'L', 'L'}
     };
-    minimumIsland(grid); // -> 1
+    minimumIsland(grid1); // -> 1
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid2 {
         {'L', 'L', 'L'},
         {'L', 'L', 'L'},
         {'L', 'L', 'L'}
     };
-    minimumIsland(grid); // -> 9
+    minimumIsland(grid2); // -> 9
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid3 {
         {'W', 'W'},
         {'L', 'L'},
         {'W', 'W'},
         {'W', 'L'}
     };
-    minimumIsland(grid); // -> 1
+    minimumIsland(grid3); // -> 1
 
 
 }
