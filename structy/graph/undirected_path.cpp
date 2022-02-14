@@ -1,13 +1,14 @@
 #include <vector>
 #include <tuple>
 #include <string>
+#include <queue>
 #include <unordered_map>
 #include <unordered_set>
 
 //Write a function, undirectedPath, that takes in a vector of edges for an undirected graph and two nodes (nodeA, nodeB).
 //The function should return a boolean indicating whether or not there exists a path between nodeA and nodeB.
 
-//recursive
+//convert edge list to adjacency list
 std::unordered_map<std::string, std::vector<std::string>> makeGraph(std::vector<std::tuple<std::string, std::string>> edges){
     std::unordered_map<std::string, std::vector<std::string>> graph;
     for(auto edge : edges){
@@ -19,31 +20,56 @@ std::unordered_map<std::string, std::vector<std::string>> makeGraph(std::vector<
     return graph;
 }
 
-bool explore(std::unordered_map<std::string, std::vector<std::string>> graph, 
-    std::string src, std::string dst, std::unordered_set<std::string> &visited) {
-        
-    if(src == dst){
-        return true;
-    }
+//recursive
+// bool explore(std::unordered_map<std::string, std::vector<std::string>> graph, 
+//     std::string src, std::string dst, std::unordered_set<std::string> &visited) {
 
-    if(visited.count(src) > 0){
-        return false;
-    } 
+//     if(src == dst){
+//         return true;
+//     }
 
-    visited.insert(src);
+//     if(visited.count(src) > 0){
+//         return false;
+//     } 
 
-    for(std::string neighbor : graph[src]){
-        if(explore(graph, neighbor, dst, visited) == true){
-            return true;
-        }
-    }
-    return false;
-}
+//     visited.insert(src);
 
+//     for(std::string neighbor : graph[src]){
+//         if(explore(graph, neighbor, dst, visited) == true){
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+
+// bool undirectedPath(std::vector<std::tuple<std::string, std::string>> edges, std::string src, std::string dst) {
+//     std::unordered_map<std::string, std::vector<std::string>> graph = makeGraph(edges);
+//     std::unordered_set<std::string> visited;
+//     return explore(graph, src, dst, visited);
+// }
+
+//breadth first iterative
 bool undirectedPath(std::vector<std::tuple<std::string, std::string>> edges, std::string src, std::string dst) {
     std::unordered_map<std::string, std::vector<std::string>> graph = makeGraph(edges);
     std::unordered_set<std::string> visited;
-    return explore(graph, src, dst, visited);
+    std::queue<std::string> queue;
+    queue.push(src);
+    while(!queue.empty()){
+        std::string current = queue.front();
+        queue.pop();
+        if(visited.count(current) == 0){
+            visited.insert(current);
+            if(current == dst){
+                return true;
+            }
+            for(std::string neighbor : graph[current]){
+                queue.push(neighbor);
+            }
+        } else {
+            current = queue.front();
+        }     
+    }
+    return false;
 }
 
 int main() {
