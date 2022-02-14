@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <stack>
+#include <iostream>
 
 
 //Depth First
@@ -11,7 +12,12 @@ void depthFirstPrint(std::unordered_map<std::string, std::vector<std::string>> g
     stack.push(start);
 
     while(!stack.empty()){
-        
+        std::string current = stack.top();
+        std::cout << current << std::endl;
+        stack.pop();
+        for(std::string neighbor : graph[current]){
+            stack.push(neighbor);
+        }
     }
 
 }
@@ -26,5 +32,6 @@ int main() {
         {"f", { } }
     };
 
+    depthFirstPrint(graph, "a");
     return 1;
 }
