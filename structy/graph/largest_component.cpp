@@ -6,8 +6,8 @@
 
 
 int largestComponent(std::unordered_map<int, std::vector<int>> graph) {
-  // todo
-  return;
+    // todo
+    return;
 }
 
 int main() {
@@ -59,3 +59,10 @@ int main() {
     };
     largestComponent(graph); // -> 3
 }
+
+//Complexity
+    //n = number of nodes
+    //e = number of edges
+
+    //Time: O( e )
+    //Space: O( n )
