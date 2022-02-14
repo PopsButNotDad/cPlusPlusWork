@@ -12,30 +12,22 @@
 int explore(std::vector<std::vector<char>> grid, int r, int c, std::unordered_set<std::string> visited) {
     bool rowInbounds = 0 <= r && r < grid.size();
     bool colInbounds = 0 <= c && c < grid.size();
-
     if(!rowInbounds || !colInbounds){
         return 0;
     }
-
     if(grid[r][c] == 'W'){
         return 0;
     }
-
     std::string pos = std::to_string(r) + "," + std::to_string(c);
-
     if(visited.count(pos) > 0){
         return 0;
     }
-
     visited.insert(pos);
-
-
 
 }
 
 int minimumIsland(std::vector<std::vector<char>> grid) {
   std::unordered_set<std::string> visited;
-
   for(int r = 0; r < grid.size() ; r+=1){
       for(int c = 0; c < grid[r].size(); c+=1){
           explore(grid, r, c, visited);
