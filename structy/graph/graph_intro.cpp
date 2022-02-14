@@ -40,8 +40,11 @@ void breadthFirstPrint(std::unordered_map<std::string, std::vector<std::string>>
 }
 
 //Recursive
-void depthFirstPrint(std::unordered_map<std::string, std::vector<std::string>> graph, std::string start){
-    
+void depthFirstPrint(std::unordered_map<std::string, std::vector<std::string>> graph, std::string current){
+    std::cout << current << std::endl;
+    for(std::string neighbor : graph[current]){
+        depthFirstPrint(graph, neighbor);
+    }
 }
 
 int main() {
@@ -54,6 +57,6 @@ int main() {
         {"f", { } }
     };
 
-    breadthFirstPrint(graph, "a");
+    depthFirstPrint(graph, "a");
     return 1;
 }
