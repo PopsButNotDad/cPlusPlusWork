@@ -1,31 +1,39 @@
 #include <vector>
 #include <tuple>
 #include <string>
-#include <stack>
-#include <queue>
 #include <unordered_map>
+#include <unordered_set>
 
 //Write a function, undirectedPath, that takes in a vector of edges for an undirected graph and two nodes (nodeA, nodeB).
 //The function should return a boolean indicating whether or not there exists a path between nodeA and nodeB.
 
+//recursive
 std::unordered_map<std::string, std::vector<std::string>> makeGraph(std::vector<std::tuple<std::string, std::string>> edges){
     std::unordered_map<std::string, std::vector<std::string>> graph;
-
     for(auto edge : edges){
         auto [a, b] = edge;
 
         graph[a].push_back(b);
         graph[b].push_back(a);
     }
-
-
     return graph;
 }
 
+bool explore(std::unordered_map<std::string, std::vector<std::string>> graph, std::string src, std::string dst) {
+    if(src == dst){
+        return true;
+    }
+    for(std::string neighbor : graph[src]){
+        if(explore(graph, neighbor, dst) == true){
+            return true;
+        }
+    }
+    return false;
+}
 
 bool undirectedPath(std::vector<std::tuple<std::string, std::string>> edges, std::string src, std::string dst) {
-    // todo
-    return;
+    std::unordered_map<std::string, std::vector<std::string>> graph = makeGraph(edges);
+    return explore(graph, src, dst);
 }
 
 int main() {
