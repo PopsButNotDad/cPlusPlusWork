@@ -51,7 +51,17 @@
 
 //recursive
 bool hasPath(std::unordered_map<std::string, std::vector<std::string>> graph, std::string src, std::string dst) {
-    
+    if (src == dst){
+        return true;
+    }
+
+    for ( std::string neighbor : graph[src]){
+        if (hasPath(graph, neighbor, dst) == true){
+            return true;
+        }
+    }
+
+    return false;
 }
 
 int main() {
@@ -66,7 +76,7 @@ int main() {
 
     hasPath(graph, "f", "k"); // 1 (true)  
 
-    std::unordered_map<std::string, std::vector<std::string>> graph {
+    std::unordered_map<std::string, std::vector<std::string>> graph1 {
     { "f", { "g", "i" } },
     { "g", {"h"} },
     { "h", {} },
@@ -75,9 +85,9 @@ int main() {
     { "k", {} }
     };
 
-    hasPath(graph, "f", "j"); // 0 (false)
+    hasPath(graph1, "f", "j"); // 0 (false)
 
-    std::unordered_map<std::string, std::vector<std::string>> graph {
+    std::unordered_map<std::string, std::vector<std::string>> graph2 {
     { "f", {"g", "i"} },
     { "g", {"h"} },
     { "h", {} },
@@ -86,9 +96,9 @@ int main() {
     { "k", {} }
     };
 
-    hasPath(graph, "i", "h"); // 1 (true)
+    hasPath(graph2, "i", "h"); // 1 (true)
 
-    std::unordered_map<std::string, std::vector<std::string>> graph {
+    std::unordered_map<std::string, std::vector<std::string>> graph3 {
     { "v", {"x", "w"} },
     { "w", {} },
     { "x", {} },
@@ -96,9 +106,9 @@ int main() {
     { "z", {} } 
     };
 
-    hasPath(graph, "v", "w"); // 1 (true)
+    hasPath(graph3, "v", "w"); // 1 (true)
 
-    std::unordered_map<std::string, std::vector<std::string>> graph {
+    std::unordered_map<std::string, std::vector<std::string>> graph4 {
     { "v", {"x", "w"} },
     { "w", {} },
     { "x", {} },
@@ -106,7 +116,7 @@ int main() {
     { "z", {} } 
     };
 
-    hasPath(graph, "v", "z"); // 0 (false)
+    hasPath(graph4, "v", "z"); // 0 (false)
 }
 
 //Complexity 
