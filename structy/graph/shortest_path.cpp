@@ -3,6 +3,7 @@
 #include <string>
 #include <queue>
 #include <unordered_map>
+#include <unordered_set>
 
 //Write a function, shortestPath, that takes in a vector of edges for an undirected graph and two nodes (nodeA, nodeB).
 //The function should return the length of the shortest path between A and B. Consider the length as the number of edges
@@ -20,8 +21,10 @@ std::unordered_map<std::string, std::vector<std::string>> makeGraph(std::vector<
 
 int shortestPath(std::vector<std::tuple<std::string, std::string>> edges, std::string nodeA, std::string nodeB) {
     std::unordered_map<std::string, std::vector<std::string>> graph = makeGraph(edges);
+    std::unordered_set<std::string> visited;
     std::queue<std::tuple<std::string, int>> queue;
     queue.push(std::tuple<std::string, int>{nodeA, 0});
+    visited.insert(nodeA);
     while(!queue.empty()){
         auto [current, distance] = queue.front();
         queue.pop();
@@ -29,7 +32,10 @@ int shortestPath(std::vector<std::tuple<std::string, std::string>> edges, std::s
             return distance;
         }
         for(std::string neighbor : graph[current]){
-            queue.push(std::tuple<std::string, int>{neighbor, distance + 1});
+            if(visited.count(neighbor) == 0){
+                queue.push(std::tuple<std::string, int>{neighbor, distance + 1});
+                visited.insert(neighbor);
+            }
         }
     }
     return -1;
