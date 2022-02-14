@@ -38,12 +38,15 @@ bool explore(std::vector<std::vector<char>> grid, int r, int c, std::unordered_s
 
 int islandCount(std::vector<std::vector<char>> grid) {
     std::unordered_set<std::string> visited;
+    int count = 0;
     for(int r = 0; r < grid.size(); r+=1){
         for(int c = 0; c < grid[0].size(); c+=1){
-            explore(grid, r, c, visited); //todo
+            if(explore(grid, r, c, visited) == true){
+                count += 1;
+            } 
         }
     }
-    return;
+    return count;
 }
 
 int main() {
