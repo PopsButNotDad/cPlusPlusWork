@@ -72,7 +72,7 @@ int main() {
 
 //Complexity 
     //n = number of nodes
-    //e = number of edges
+    //n^2 = number of edges
 
-    //Time: O( e )
+    //Time: O( n^2 )
     //Space: O( n )
