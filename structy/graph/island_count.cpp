@@ -1,12 +1,49 @@
 #include <vector>
+#include <unordered_set>
+#include <string>
 
 //Write a function, islandCount, that takes in a grid containing Ws and Ls. W represents water and L represents Land. The
 //function should return the number of islands on the grid. An island is a vertically or horizontally connected region of
 //land.
 
+bool explore(std::vector<std::vector<char>> grid, int r, int c, std::unordered_set<std::string> &visited){
+    bool rowInbounds = 0 <= r && r < grid.size();
+    bool colInbounds = 0 <= c && c < grid.size();
+
+
+    if(!rowInbounds || !colInbounds){
+        return false;
+    }
+
+    if(grid[r][c] == 'W'){
+        return false;
+    }
+
+    std::string pos = std::to_string(r) + "," + std::to_string(c);
+
+    if(visited.count(pos) > 0){
+        return false;
+    }
+
+    visited.insert(pos);
+
+    explore(grid, r+1, c, visited);
+    explore(grid, r-1, c, visited);
+    explore(grid, r, c+1, visited);
+    explore(grid, r, c-1, visited);
+
+
+    return true;
+}
+
 int islandCount(std::vector<std::vector<char>> grid) {
-  // todo
-  return;
+    std::unordered_set<std::string> visited;
+    for(int r = 0; r < grid.size(); r+=1){
+        for(int c = 0; c < grid[0].size(); c+=1){
+            explore(grid, r, c, visited); //todo
+        }
+    }
+    return;
 }
 
 int main() {
