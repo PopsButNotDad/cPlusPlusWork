@@ -5,9 +5,6 @@
 //Write a function, connectedComponentsCount, that takes in an unordered map representing the adjacency list for an
 //undirected graph. The function should return the number of connected components within the graph.
 
-
-
-
 //recursive
 bool explore(std::unordered_map<int, std::vector<int>> graph, int node, std::unordered_set<int> &visited) {
     if(visited.count(node) > 0){
