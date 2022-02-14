@@ -19,7 +19,9 @@ std::unordered_map<std::string, std::vector<std::string>> makeGraph(std::vector<
     return graph;
 }
 
-bool explore(std::unordered_map<std::string, std::vector<std::string>> graph, std::string src, std::string dst, std::unordered_set<std::string> &visited) {
+bool explore(std::unordered_map<std::string, std::vector<std::string>> graph, 
+    std::string src, std::string dst, std::unordered_set<std::string> &visited) {
+        
     if(src == dst){
         return true;
     }
