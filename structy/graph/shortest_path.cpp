@@ -10,37 +10,28 @@
 
 std::unordered_map<std::string, std::vector<std::string>> makeGraph(std::vector<std::tuple<std::string, std::string>> edges) {
     std::unordered_map<std::string, std::vector<std::string>> graph;
-
     for(auto edge : edges){
         auto [a, b] = edge;
-
         graph[a].push_back(b);
         graph[b].push_back(a);
     }
-
     return graph;
 }
 
 int shortestPath(std::vector<std::tuple<std::string, std::string>> edges, std::string nodeA, std::string nodeB) {
     std::unordered_map<std::string, std::vector<std::string>> graph = makeGraph(edges);
     std::queue<std::tuple<std::string, int>> queue;
-
     queue.push(std::tuple<std::string, int>{nodeA, 0});
-    
     while(!queue.empty()){
         auto [current, distance] = queue.front();
         queue.pop();
-
         if(current == nodeB){
             return distance;
         }
-
         for(std::string neighbor : graph[current]){
             queue.push(std::tuple<std::string, int>{neighbor, distance + 1});
         }
-
     }
-
     return -1;
 }
 
