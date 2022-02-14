@@ -43,7 +43,7 @@ int main() {
     };
     largestComponent(graph); // -> 4
 
-    std::unordered_map<int, std::vector<int>> graph {
+    std::unordered_map<int, std::vector<int>> graph1 {
         { 1, {2} },
         { 2, {1, 8} },
         { 6, {7} },
@@ -51,9 +51,9 @@ int main() {
         { 7, {6, 8} },
         { 8, {9, 7, 2} }
     };
-    largestComponent(graph); // -> 6
+    largestComponent(graph1); // -> 6
 
-    std::unordered_map<int, std::vector<int>> graph {
+    std::unordered_map<int, std::vector<int>> graph2 {
         { 3, {} },
         { 4, {6} },
         { 6, {4, 5, 7, 8} },
@@ -63,12 +63,12 @@ int main() {
         { 1, {2} },
         { 2, {1} }
     };
-    largestComponent(graph); // -> 5
+    largestComponent(graph2); // -> 5
 
-    std::unordered_map<int, std::vector<int>> graph;
-    largestComponent(graph); // -> 0
+    std::unordered_map<int, std::vector<int>> graph3;
+    largestComponent(graph3); // -> 0
 
-    std::unordered_map<int, std::vector<int>> graph {
+    std::unordered_map<int, std::vector<int>> graph4 {
         { 0, {4, 7} },
         { 1, {} },
         { 2, {} },
@@ -78,7 +78,7 @@ int main() {
         { 7, {0} },
         { 8, {} }
     };
-    largestComponent(graph); // -> 3
+    largestComponent(graph4); // -> 3
 }
 
 //Complexity
