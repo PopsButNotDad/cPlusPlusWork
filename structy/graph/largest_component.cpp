@@ -1,13 +1,34 @@
 #include <unordered_map>
 #include <vector>
+#include <unordered_set>
 
 //Write a function, largestComponent, that takes in an unordered_map representing the adjacency list of an undirected graph.
 //The function should return the size of the largest connected component in the graph.
 
+//recursive
+int explore(std::unordered_map<int, std::vector<int>> graph, int node, std::unordered_set<int> &visited){
+    if(visited.count(node) > 0){
+        return 0;
+    }
+    visited.insert(node);
+    int totalSize = 1;
+    for(int neighbor : graph[node]){
+        totalSize += explore(graph, neighbor, visited);
+    }
+    return totalSize;
+}
 
 int largestComponent(std::unordered_map<int, std::vector<int>> graph) {
-    // todo
-    return;
+    std::unordered_set<int> visited;
+    int largest = 0;
+    for(auto pair : graph){
+        int node = pair.first;
+        int currentSize = explore(graph, node, visited);
+        if(currentSize > largest){
+            largest = currentSize;
+        }
+    }
+    return largest;
 }
 
 int main() {
@@ -65,4 +86,4 @@ int main() {
     //e = number of edges
 
     //Time: O( e )
-    //Space: O( n )
+    //Space: O( n `)
