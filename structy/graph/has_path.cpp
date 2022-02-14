@@ -11,7 +11,7 @@
 
 
 bool hasPath(std::unordered_map<std::string, std::vector<std::string>> graph, std::string src, std::string dst) {
-    // todo
+    
     return;
 }
 
@@ -71,8 +71,8 @@ int main() {
 }
 
 //Complexity 
-    //n = 
-    //e = 
+    //n = number of nodes
+    //e = number of edges
 
-    //Time: 
-    //Space:
+    //Time: O( e )
+    //Space: O( n )
