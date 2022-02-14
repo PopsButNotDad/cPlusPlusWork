@@ -76,18 +76,18 @@ std::vector<std::string> leafList(Node* root) {
 }
 
 int main() {
-    Node a("a");
-    Node b("b");
-    Node c("c");
-    Node d("d");
-    Node e("e");
-    Node f("f");
+    Node a1("a");
+    Node b1("b");
+    Node c1("c");
+    Node d1("d");
+    Node e1("e");
+    Node f1("f");
 
-    a.left = &b;
-    a.right = &c;
-    b.left = &d;
-    b.right = &e;
-    c.right = &f;
+    a1.left = &b1;
+    a1.right = &c1;
+    b1.left = &d1;
+    b1.right = &e1;
+    c1.right = &f1;
 
     //      a
     //    /   \
@@ -95,24 +95,24 @@ int main() {
     //  / \     \
     // d   e     f
 
-    leafList(&a); // -> [ "d", "e", "f" ]
+    leafList(&a1); // -> [ "d", "e", "f" ]
 
-    Node a("a");
-    Node b("b");
-    Node c("c");
-    Node d("d");
-    Node e("e");
-    Node f("f");
-    Node g("g");
-    Node h("h");
+    Node a2("a");
+    Node b2("b");
+    Node c2("c");
+    Node d2("d");
+    Node e2("e");
+    Node f2("f");
+    Node g2("g");
+    Node h2("h");
 
-    a.left = &b;
-    a.right = &c;
-    b.left = &d;
-    b.right = &e;
-    c.right = &f;
-    e.left = &g;
-    f.right = &h;
+    a2.left = &b2;
+    a2.right = &c2;
+    b2.left = &d2;
+    b2.right = &e2;
+    c2.right = &f2;
+    e2.left = &g2;
+    f2.right = &h2;
 
     //      a
     //    /   \
@@ -122,7 +122,7 @@ int main() {
     //    /       \
     //   g         h
 
-    leafList(&a); // -> [ "d", "g", "h" ]
+    leafList(&a2); // -> [ "d", "g", "h" ]
 
     Node a("5");
     Node b("11");
