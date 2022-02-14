@@ -2,11 +2,12 @@
 #include <vector>
 #include <string>
 #include <stack>
+#include <queue>
 #include <iostream>
 
 
-//Depth First
-void depthFirstPrint(std::unordered_map<std::string, std::vector<std::string>> graph, std::string start){
+//Depth First Iterative
+void depthFirstPrintIt(std::unordered_map<std::string, std::vector<std::string>> graph, std::string start){
     std::stack<std::string> stack;
 
     stack.push(start);
@@ -22,6 +23,27 @@ void depthFirstPrint(std::unordered_map<std::string, std::vector<std::string>> g
 
 }
 
+//Breadth First
+void breadthFirstPrint(std::unordered_map<std::string, std::vector<std::string>> graph, std::string start){
+    std::queue<std::string> queue;
+
+    queue.push(start);
+
+    while (!queue.empty()) {
+        std::string current = queue.front();
+        std::cout << current << std::endl;
+        queue.pop();
+        for(std::string neighbor : graph[current]){
+            queue.push(neighbor);
+        }
+    }
+}
+
+//Recursive
+void depthFirstPrint(std::unordered_map<std::string, std::vector<std::string>> graph, std::string start){
+    
+}
+
 int main() {
     std::unordered_map<std::string, std::vector<std::string>> graph {
         {"a", {"b", "c"} },
@@ -32,6 +54,6 @@ int main() {
         {"f", { } }
     };
 
-    depthFirstPrint(graph, "a");
+    breadthFirstPrint(graph, "a");
     return 1;
 }
