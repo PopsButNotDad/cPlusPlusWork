@@ -9,9 +9,7 @@
 //Depth First Iterative
 void depthFirstPrintIt(std::unordered_map<std::string, std::vector<std::string>> graph, std::string start){
     std::stack<std::string> stack;
-
     stack.push(start);
-
     while(!stack.empty()){
         std::string current = stack.top();
         std::cout << current << std::endl;
@@ -20,15 +18,12 @@ void depthFirstPrintIt(std::unordered_map<std::string, std::vector<std::string>>
             stack.push(neighbor);
         }
     }
-
 }
 
 //Breadth First
 void breadthFirstPrint(std::unordered_map<std::string, std::vector<std::string>> graph, std::string start){
     std::queue<std::string> queue;
-
     queue.push(start);
-
     while (!queue.empty()) {
         std::string current = queue.front();
         std::cout << current << std::endl;
@@ -56,7 +51,6 @@ int main() {
         {"e", { } },
         {"f", { } }
     };
-
     depthFirstPrint(graph, "a");
     return 1;
 }
