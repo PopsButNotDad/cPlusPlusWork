@@ -124,8 +124,7 @@ int main() {
 }
 
 //Complexity
-    //n = 
-    //e = 
+    //e = number of edges
 
-    //Time: 
-    //Space:
+    //Time: O( e )
+    //Space: O( e )
