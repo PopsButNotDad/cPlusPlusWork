@@ -1,15 +1,35 @@
 #include <unordered_map>
 #include <vector>
 #include <unordered_set>
-#include <queue>
-#include <stack>
 
 //Write a function, connectedComponentsCount, that takes in an unordered map representing the adjacency list for an
 //undirected graph. The function should return the number of connected components within the graph.
 
+
+
+
+//recursive
+bool explore(std::unordered_map<int, std::vector<int>> graph, int node, std::unordered_set<int> &visited) {
+    if(visited.count(node) > 0){
+        return false;
+    }
+    visited.insert(node);
+    for(int neighbor : graph[node]){
+        explore(graph, neighbor, visited);
+    }
+    return true;
+}
+
 int connectedComponentsCount(std::unordered_map<int, std::vector<int>> graph) {
-    // todo
-    return;
+    std::unordered_set<int> visited;
+    int count = 0;
+    for(auto pair : graph){
+        int node = pair.first;
+        if(explore(graph, node, visited)== true){
+            count += 1;
+        }
+    }
+    return count;
 }
 
 int main() {
