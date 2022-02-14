@@ -19,12 +19,19 @@ std::unordered_map<std::string, std::vector<std::string>> makeGraph(std::vector<
     return graph;
 }
 
-bool explore(std::unordered_map<std::string, std::vector<std::string>> graph, std::string src, std::string dst) {
+bool explore(std::unordered_map<std::string, std::vector<std::string>> graph, std::string src, std::string dst, std::unordered_set<std::string> &visited) {
     if(src == dst){
         return true;
     }
+
+    if(visited.count(src) > 0){
+        return false;
+    } 
+
+    visited.insert(src);
+
     for(std::string neighbor : graph[src]){
-        if(explore(graph, neighbor, dst) == true){
+        if(explore(graph, neighbor, dst, visited) == true){
             return true;
         }
     }
@@ -33,7 +40,8 @@ bool explore(std::unordered_map<std::string, std::vector<std::string>> graph, st
 
 bool undirectedPath(std::vector<std::tuple<std::string, std::string>> edges, std::string src, std::string dst) {
     std::unordered_map<std::string, std::vector<std::string>> graph = makeGraph(edges);
-    return explore(graph, src, dst);
+    std::unordered_set<std::string> visited;
+    return explore(graph, src, dst, visited);
 }
 
 int main() {
