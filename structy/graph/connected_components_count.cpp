@@ -61,5 +61,11 @@ int main() {
     };
     connectedComponentsCount(graph4); // -> 5
 
-
 }
+
+//Complextity 
+    //n = number of nodes
+    //e = number of edges
+
+    //Time: O( e )
+    //Space: O( n )
