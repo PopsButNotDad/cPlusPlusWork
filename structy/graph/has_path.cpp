@@ -9,10 +9,49 @@
 //and two nodes (src, dst). The function should return a boolean indicating whether or not there exists a directed path
 //between the source and destination nodes.
 
+//breadth first
+// bool hasPath(std::unordered_map<std::string, std::vector<std::string>> graph, std::string src, std::string dst) {
+//     std::queue<std::string> queue;
 
+//     queue.push(src);
+
+//     while(!queue.empty()){
+//         std::string current = queue.front();
+//         queue.pop();
+//         if(current == dst){
+//             return true;
+//         }
+
+//         for(std::string neighbor : graph[current]){
+//             queue.push(neighbor);
+//         }
+//     }
+//     return false;
+// }
+
+//depth first iterative
+// bool hasPath(std::unordered_map<std::string, std::vector<std::string>> graph, std::string src, std::string dst) {
+//     std::stack<std::string> stack;
+
+//     stack.push(src);
+
+//     while(!stack.empty()){
+//         std::string current = stack.top();
+//         stack.pop();
+//         if(current == dst){
+//             return true;
+//         }
+
+//         for(std::string neighbor : graph[current]){
+//             stack.push(neighbor);
+//         }
+//     }
+//     return false;
+// }
+
+//recursive
 bool hasPath(std::unordered_map<std::string, std::vector<std::string>> graph, std::string src, std::string dst) {
     
-    return;
 }
 
 int main() {
