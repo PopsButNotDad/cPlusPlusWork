@@ -1,6 +1,7 @@
 #include <vector>
 #include <queue>
 #include <unordered_set>
+#include <tuple>
 
 //Write a function, closestCarrot, that takes in a grid, a starting row, and a starting column. In the grid, 'X's are walls
 //'O's are open spaces, and 'C's are carrots. The function should return a number representing the length of the shortest
@@ -9,7 +10,12 @@
 
 
 int closestCarrot(std::vector<std::vector<char>> grid, int startRow, int startCol) {
-    // todo
+    std::unordered_set<std::string> visited;
+    std::queue<std::tuple<std::string, int>> queue;
+
+
+
+
     return;
 }
 
@@ -85,5 +91,5 @@ closestCarrot(grid, 0, 0); // -> -1
     //r = number of rows
     //c = number of columns
 
-    //Time: 
-    //Space:
+    //Time: O( rc )
+    //Space:O( rc )
