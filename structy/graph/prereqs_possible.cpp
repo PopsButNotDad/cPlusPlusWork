@@ -1,14 +1,28 @@
 #include <vector>
 #include <tuple>
+#include <unordered_map>
+#include <unordered_set>
 
 //Write a function, prereqsPossible, that takes in a number of courses (n) and prerequisites as arguments. Courses have
 //ids ranging from 0 through n - 1. A single prerequisite of {A, B} means that course A must be taken before course B.
 //The function should return a boolean indicating whether or not it is possible to complete all courses.
 
 
+std::unordered_map<int, std::vector<int>> makeGraph(std::vector<std::tuple<int, int>> edges){
+    std::unordered_map<int, std::vector<int>> graph;
+
+    for(auto[a, b] : edges){
+        graph[a].push_back(b);
+    }
+
+    return graph;
+}
+
 bool prereqsPossible(int numCourses, std::vector<std::tuple<int, int>> prereqs) {
-  // todo
-  return;
+    std::unordered_map<int, std::vector<int>> graph = makeGraph(prereqs);
+
+
+    return;
 }
 
 int main() {
@@ -82,8 +96,8 @@ int main() {
 }
 
 //Complexity
-    //
-    //
+    //n = number of courses
+    //p = number of prereqs
 
-    //Time: 
-    //Space: 
+    //Time: O( n+p )
+    //Space: O( n+p )
