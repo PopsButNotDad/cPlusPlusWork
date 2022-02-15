@@ -106,6 +106,8 @@ int bestBridge(std::vector<std::vector<char>> grid) {
         }
     }
 
+    return -1;
+
 }
 
 int main() {
