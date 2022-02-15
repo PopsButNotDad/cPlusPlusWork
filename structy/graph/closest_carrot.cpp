@@ -71,7 +71,7 @@ std::vector<std::vector<char>> grid {
 };
 closestCarrot(grid, 1, 2); // -> 4
 
-std::vector<std::vector<char>> grid {
+std::vector<std::vector<char>> grid1 {
     {'O', 'O', 'O', 'O', 'O'},
     {'O', 'X', 'O', 'O', 'O'},
     {'O', 'X', 'X', 'O', 'O'},
@@ -79,9 +79,9 @@ std::vector<std::vector<char>> grid {
     {'O', 'X', 'X', 'O', 'O'},
     {'C', 'O', 'O', 'O', 'O'}
 };
-closestCarrot(grid, 0, 0); // -> 5
+closestCarrot(grid1, 0, 0); // -> 5
 
-std::vector<std::vector<char>> grid {
+std::vector<std::vector<char>> grid2 {
     {'O', 'O', 'X', 'X', 'X'},
     {'O', 'X', 'X', 'X', 'C'},
     {'O', 'X', 'O', 'X', 'X'},
@@ -91,24 +91,24 @@ std::vector<std::vector<char>> grid {
     {'O', 'O', 'C', 'O', 'O'},
     {'O', 'O', 'O', 'O', 'O'}
 };
-closestCarrot(grid, 3, 4); // -> 9
+closestCarrot(grid2, 3, 4); // -> 9
 
-std::vector<std::vector<char>> grid {
+std::vector<std::vector<char>> grid3 {
     {'O', 'O', 'X', 'O', 'O'},
     {'O', 'X', 'X', 'X', 'O'},
     {'O', 'X', 'C', 'C', 'O'},
 };
-closestCarrot(grid, 1, 4); // -> 2
+closestCarrot(grid3, 1, 4); // -> 2
 
-std::vector<std::vector<char>> grid {
+std::vector<std::vector<char>> grid4 {
     {'O', 'O', 'X', 'O', 'O'},
     {'O', 'X', 'X', 'X', 'O'},
     {'O', 'X', 'C', 'C', 'O'},
 };
 
-closestCarrot(grid, 2, 0); // -> -1
+closestCarrot(grid4, 2, 0); // -> -1
 
-std::vector<std::vector<char>> grid {
+std::vector<std::vector<char>> grid5 {
     {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
     {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
     {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
@@ -123,7 +123,7 @@ std::vector<std::vector<char>> grid {
     {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'C'},
 };
 
-closestCarrot(grid, 0, 0); // -> -1
+closestCarrot(grid5, 0, 0); // -> -1
 
 
 }
