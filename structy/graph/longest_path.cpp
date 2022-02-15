@@ -73,7 +73,7 @@ int main() {
     };
     longestPath(graph); // -> 2
 
-    std::unordered_map<char, std::vector<char>> graph {
+    std::unordered_map<char, std::vector<char>> graph1 {
         { 'a', {'c', 'b'} },
         { 'b', {'c'} },
         { 'c', {} },
@@ -83,9 +83,9 @@ int main() {
         { 't', {'u'} },
         { 'u', {} }
     };
-    longestPath(graph); // -> 4
+    longestPath(graph1); // -> 4
 
-    std::unordered_map<char, std::vector<char>> graph {
+    std::unordered_map<char, std::vector<char>> graph2 {
         { 'h', {'i', 'j', 'k'} },
         { 'g', {'h'} },
         { 'i', {} },
@@ -94,9 +94,9 @@ int main() {
         { 'x', {'y'} },
         { 'y', {} }
     };
-    longestPath(graph); // -> 2
+    longestPath(graph2); // -> 2
 
-    std::unordered_map<char, std::vector<char>> graph {
+    std::unordered_map<char, std::vector<char>> graph3 {
         { 'a', {'b'} },
         { 'b', {'c'} },
         { 'c', {} },
@@ -105,7 +105,7 @@ int main() {
         { 'g', {'h'} },
         { 'h', {} }
     };
-    longestPath(graph); // -> 3
+    longestPath(graph3); // -> 3
 }
 
 //Complexity
