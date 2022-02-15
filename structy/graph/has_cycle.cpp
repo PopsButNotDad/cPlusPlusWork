@@ -1,12 +1,12 @@
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 
 //Write a function, hasCycle, that takes in an unordered map representing the adjacency list of a directed graph.
 //The function should return a boolean indicating whether or not the graph contains a cycle.
 
-
 bool hasCycle(std::unordered_map<char, std::vector<char>> graph) {
-    // todo
+    
     return;
 }
 
@@ -57,8 +57,8 @@ int main() {
 }
 
 //Complexity
-    //
-    //
+    //n = number of nodes
+    //e = number of edges
 
-    //Time: 
-    //Space: 
+    //Time: O( e )
+    //Space: O( n )
