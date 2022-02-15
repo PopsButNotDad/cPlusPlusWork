@@ -18,11 +18,42 @@ std::unordered_map<int, std::vector<int>> makeGraph(std::vector<std::tuple<int, 
     return graph;
 }
 
+bool hasCycle(std::unordered_map<int, std::vector<int>> graph, int node, std::unordered_set<int> &visiting, 
+  std::unordered_set<int> &visited){
+    if(visiting.count(node) > 0){
+        return true;
+    }
+
+    if(visited.count(node) > 0){
+        return false;
+    }
+
+    visiting.insert(node);
+
+    for(int neighbor : graph[node]){
+        if(hasCycle(graph, neighbor, visiting, visited)){
+            return true;
+        }
+    }
+
+    visiting.erase(node);
+    visited.insert(node);
+
+    return false;
+}
+
 bool prereqsPossible(int numCourses, std::vector<std::tuple<int, int>> prereqs) {
     std::unordered_map<int, std::vector<int>> graph = makeGraph(prereqs);
+    std::unordered_set<int> visiting;
+    std::unordered_set<int> visited;
 
+    for (int node = 0; node < numCourses; node +=1){
+        if(hasCycle(graph, node, visiting, visited)){
+            return false;
+        }
+    }
 
-    return;
+    return true;
 }
 
 int main() {
