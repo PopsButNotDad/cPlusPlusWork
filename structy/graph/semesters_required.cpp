@@ -1,5 +1,7 @@
 #include <vector>
 #include <tuple>
+#include <unordered_map>
+#include <unordered_set>
 
 //Write a function, semestersRequired, that takes in a number of courses (n) and a list of prerequisites as arguments.
 //Courses have ids ranings from 0 through n - 1. A single prerequisite of {A, B} means that course A must be taken before
@@ -71,8 +73,8 @@ int main() {
 }
 
 //Complexity
-    //
-    //
+    //n = number of courses
+    //p = number of prereqs
 
-    //Time:
-    //Space:
+    //Time: O( p )
+    //Space: O( n )
