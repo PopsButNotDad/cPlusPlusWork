@@ -5,8 +5,8 @@
 //the minimum length bridge needed to connect the two islands. A bridge does not need to form a straight line.
 
 int bestBridge(std::vector<std::vector<char>> grid) {
-  // todo
-  return;
+    // todo
+    return;
 }
 
 int main() {
@@ -80,8 +80,8 @@ int main() {
 }
 
 //Complexity
-    //
-    //
+    //r = number of rows
+    //c = number of colummns
 
-    //Time: 
-    //Space:
+    //Time: O( rc )
+    //Space: O( rc )
