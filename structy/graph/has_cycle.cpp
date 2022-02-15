@@ -5,6 +5,7 @@
 //Write a function, hasCycle, that takes in an unordered map representing the adjacency list of a directed graph.
 //The function should return a boolean indicating whether or not the graph contains a cycle.
 
+//WHITE GRAY BLACK ALGORITHM USING 2 SETS
 bool detectCycle(std::unordered_map<char, std::vector<char>> graph, std::unordered_set<char> &visiting, 
   std::unordered_set<char> &visited, char node){
       if(visiting.count(node) > 0){
