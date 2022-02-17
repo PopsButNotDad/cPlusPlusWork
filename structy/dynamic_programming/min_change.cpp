@@ -7,8 +7,29 @@
 //If it is not possible to create the amount, then return -1.
 
 int minChange(int amount, std::vector<int> coins) {
-    // todo
-    return;
+    if(amount == 0){
+        return 0;
+    }
+
+    if(amount < 0){
+        return -1;
+    }
+
+    int min = -1;
+
+    for(int coin : coins){
+        int remainder = amount - coin;
+        int remainderQty = minChange(remainder, coins);
+        if (remainderQty != -1){
+            int totalQty = remainderQty + 1;
+            if(min == -1 || totalQty < min){
+                min = totalQty;
+            }
+
+        }
+    }
+
+    return min;
 }
 
 int main() {
@@ -36,4 +57,4 @@ int main() {
     //c = coins
 
     //Time: O( a*c )
-    //space: O( n )
+    //space: O( a )
