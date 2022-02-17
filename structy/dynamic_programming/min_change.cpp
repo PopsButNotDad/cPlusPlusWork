@@ -6,7 +6,10 @@
 
 //If it is not possible to create the amount, then return -1.
 
-int minChange(int amount, std::vector<int> coins) {
+int minChange(int amount, std::vector<int> coins, std::unordered_map<int, int> &memo) {
+    if(memo.count(amount) > 0){
+        return memo[amount];
+    }
     if(amount == 0){
         return 0;
     }
@@ -19,7 +22,7 @@ int minChange(int amount, std::vector<int> coins) {
 
     for(int coin : coins){
         int remainder = amount - coin;
-        int remainderQty = minChange(remainder, coins);
+        int remainderQty = minChange(remainder, coins, memo);
         if (remainderQty != -1){
             int totalQty = remainderQty + 1;
             if(min == -1 || totalQty < min){
@@ -29,7 +32,15 @@ int minChange(int amount, std::vector<int> coins) {
         }
     }
 
+    memo[amount] = min;
     return min;
+}
+
+int minChange(int amount, std::vector<int> coins) {
+    std::unordered_map<int, int> memo;
+
+    return minChange(amount, coins, memo);
+
 }
 
 int main() {
