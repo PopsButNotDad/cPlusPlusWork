@@ -33,7 +33,7 @@ int main() {
 
 //Complexity: 
     //a = amount
-    //n = number of coins
+    //c = coins
 
-    //Time: O( a*n )
+    //Time: O( a*c )
     //space: O( n )
