@@ -1,4 +1,5 @@
 #include <vector>
+#include <unordered_map>
 
 //Write a function, sumPossible, that takes in an amount and a vector of positive numbers. The function should return a 
 //boolean indicating whether or not it is possible to create the amount by summing numbers of the vector. You may reuse
@@ -6,9 +7,33 @@
 
 //You may assume the target amount is non-negative.
 
+bool sumPossible(int amount, std::vector<int> numbers, std::unordered_map<int, bool> &memo) {
+    if(memo.count(amount) > 0){
+        return memo[amount];
+    }
+    if(amount == 0){
+        return true;
+    }
+
+    if(amount < 0){
+        return false;
+    }
+
+    for(int num : numbers){
+        if(sumPossible(amount - num, numbers, memo)){
+            //Dont need this but good practice to include the memo[amount] for true values
+            memo[amount] =  true;
+            return true;
+        };
+    }
+
+    memo[amount] = false;
+    return false;
+}
+
 bool sumPossible(int amount, std::vector<int> numbers) {
-    // todo
-    return;
+    std::unordered_map<int, bool> memo;
+    return sumPossible(amount, numbers, memo);
 }
 
 int main() {
@@ -34,7 +59,8 @@ int main() {
 }
 
 //Complexity:
-    //
+    //a = amount 
+    //n = length of numbers
 
-    //Time: 
-    //Space:
+    //Time: O( a*n )
+    //Space: O( a )
