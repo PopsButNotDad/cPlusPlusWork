@@ -41,7 +41,7 @@ int main() {
 }
 
 //Complexity
-    //
+    //n = number of nodes
 
     //Time: O( n )
     //Space: O( n )

@@ -7,10 +7,14 @@
 
 //Solve this recursively.
 
+int tribonacci(int n, std::unordered_map<int, int> memo) {
+    
+    return;
+}
 
 int tribonacci(int n) {
-  // todo
-  return;
+    std::unordered_map<int, int> memo;
+    return tribonacci(n, memo);
 }
 
 int main(){
@@ -25,8 +29,7 @@ int main(){
 }
 
 //Complexity
-    //
-    //
+    //n = number of nodes
 
-    //Time: 
-    //Space:
+    //Time: O( n )
+    //Space: O( n )
