@@ -42,55 +42,55 @@ int main() {
     };
     countPaths(grid); // -> 2
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid1 {
         {'O', 'O', 'X'},
         {'O', 'O', 'O'},
         {'O', 'O', 'O'}
     };
-    countPaths(grid); // -> 5
+    countPaths(grid1); // -> 5
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid2 {
         {'O', 'O', 'O'},
         {'O', 'O', 'X'},
         {'O', 'O', 'O'}
     };
-    countPaths(grid); // -> 3
+    countPaths(grid2); // -> 3
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid3 {
         {'O', 'O', 'O'},
         {'O', 'X', 'X'},
         {'O', 'O', 'O'}
     };
-    countPaths(grid); // -> 1
+    countPaths(grid3); // -> 1
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid4 {
         {'O', 'O', 'X', 'O', 'O', 'O'},
         {'O', 'O', 'X', 'O', 'O', 'O'},
         {'X', 'O', 'X', 'O', 'O', 'O'},
         {'X', 'X', 'X', 'O', 'O', 'O'},
         {'O', 'O', 'O', 'O', 'O', 'O'}
     };
-    countPaths(grid); // -> 0
+    countPaths(grid4); // -> 0
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid5 {
         {'O', 'O', 'X', 'O', 'O', 'O'},
         {'O', 'O', 'O', 'O', 'O', 'X'},
         {'X', 'O', 'O', 'O', 'O', 'O'},
         {'X', 'X', 'X', 'O', 'O', 'O'},
         {'O', 'O', 'O', 'O', 'O', 'O'}
     };
-    countPaths(grid); // -> 42
+    countPaths(grid5); // -> 42
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid6 {
         {'O', 'O', 'X', 'O', 'O', 'O'},
         {'O', 'O', 'O', 'O', 'O', 'X'},
         {'X', 'O', 'O', 'O', 'O', 'O'},
         {'X', 'X', 'X', 'O', 'O', 'O'},
         {'O', 'O', 'O', 'O', 'O', 'X'}
     };
-    countPaths(grid); // -> 0
+    countPaths(grid6); // -> 0
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid7 {
         {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
         {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
         {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
@@ -107,9 +107,9 @@ int main() {
         {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
         {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'}
     };
-    countPaths(grid); // -> 40116600
+    countPaths(grid7); // -> 40116600
 
-    std::vector<std::vector<char>> grid {
+    std::vector<std::vector<char>> grid8 {
         {'O', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
         {'O', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
         {'O', 'O', 'O', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'},
@@ -126,7 +126,7 @@ int main() {
         {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'},
         {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'}
     };
-    countPaths(grid); // -> 3190434
+    countPaths(grid8); // -> 3190434
 }
 
 //Complexity
