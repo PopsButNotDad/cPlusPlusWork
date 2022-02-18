@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
+#include <algorithm>
 
 //Write a function, maxPathSum, that takes in a grid as an argument. The function should return the maximum sum 
 //possible by traveling a path from the top-left corner to the bottom-right corner. You may only travel through the grid
@@ -22,13 +23,12 @@ int maxPathSum(std::vector<std::vector<int>> grid, int r, int c, std::unordered_
     }
 
     if(r == grid.size() - 1 && c == grid[0].size() - 1){
-        return 1;
+        return grid[r][c];
     }
 
-    maxPathSum(grid, r+1, c, memo);
-    maxPathSum(grid, r, c+1, memo);
+    memo[pos] = grid[r][c] + std::max(maxPathSum(grid, r+1, c, memo), maxPathSum(grid, r, c+1, memo));
 
-    return;
+    return memo[pos];
 }
 
 int maxPathSum(std::vector<std::vector<int>> grid) {
@@ -99,8 +99,8 @@ int main() {
 }
 
 //Complexity
-    //
-    //
+    //r = number of rows
+    //c = number of columns
 
-    //Time: 
-    //Space:
+    //Time: O( rc )
+    //Space: O( rc )
