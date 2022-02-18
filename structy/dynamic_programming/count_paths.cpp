@@ -1,4 +1,6 @@
 #include <vector>
+#include <unordered_map>
+#include <unordered_set>
 
 //Write a function, countPaths, that takes in a grid as an argument. In the grid, 'X' represents walls and 'O' represents
 //open spaces. You may only move down or to the right and cannot pass through walls. The function should return the number
@@ -31,9 +33,9 @@ int main() {
     countPaths(grid); // -> 3
 
     std::vector<std::vector<char>> grid {
-    {'O', 'O', 'O'},
-    {'O', 'X', 'X'},
-    {'O', 'O', 'O'}
+        {'O', 'O', 'O'},
+        {'O', 'X', 'X'},
+        {'O', 'O', 'O'}
     };
     countPaths(grid); // -> 1
 
@@ -104,8 +106,8 @@ int main() {
 }
 
 //Complexity
-    //
-    //
+    //r = number of rows
+    //c = number of columns
 
-    //Time: 
-    //Space: 
+    //Time: O( r*c )
+    //Space: O( r*c )
