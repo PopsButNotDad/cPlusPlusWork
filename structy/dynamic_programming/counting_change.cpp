@@ -1,4 +1,6 @@
 #include <vector>
+#include <unordered_map>
+#include <string>
 
 //Write a function, countingChange, that takes in an amount and a vector of coins. The function should return the number
 //of different ways it is possible to make change for the given amount using the coins.
@@ -14,10 +16,33 @@
 // 3. 1 + 3
 // 4. 2 + 2
 
-int countingChange(int amount, std::vector<int> coins) {
-    // todo
-    return;
+int countingChange(int amount, std::vector<int> coins, int i, std::unordered_map<std::string, int> &memo) {
+    std::string key = std::to_string(amount) + "," + std::to_string(i);
+    if(memo.count(key) > 0){
+        return memo[key];
+    }
+    if(amount == 0){
+        return 1;
+    }
+    if(i == coins.size()){
+        return 0;
+    }
+    int coin = coins[i];
+    int numWays = 0;
+    for(int qty = 0; (qty * coin) <= amount ;qty+=1){
+        int remaining = amount - (qty * coin);
+        numWays += countingChange(remaining, coins, i+1, memo);
+    }
+    memo[key] = numWays;
+    return numWays;
 }
+
+int countingChange(int amount, std::vector<int> coins) {
+    std::unordered_map<std::string, int> memo;
+    return countingChange(amount, coins, 0, memo);
+}
+
+
 
 int main() {
     countingChange(4, std::vector<int> {1, 2, 3}); // -> 4
@@ -36,8 +61,8 @@ int main() {
 }
 
 //Complexity:
-    //
-    //
+    //a = amount
+    //c = coins
 
-    //Time: 
-    //Space:
+    //Time: O( a*c )
+    //Space: O( a*c )
