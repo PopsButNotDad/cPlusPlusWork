@@ -46,8 +46,7 @@ int main() {
 }
 
 //Complexity:
-    //
-    //
+    //n = length of numbers
 
-    //Time: 
-    //Space:
+    //Time: O( n^2 )
+    //Space: O( n )
